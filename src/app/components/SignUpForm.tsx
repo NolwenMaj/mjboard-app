@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { signUp } from "../actions/users/signUp";
 
 export const SignUpForm = () => {
  
@@ -10,7 +11,9 @@ export const SignUpForm = () => {
     const [message, setMessage]= useState('')
 
     const handleSubmit = async () => {
-        console.log("handle submit");
+       setMessage("Inscription en cours ...");
+       const messageFromServer = await signUp(email, password);
+       setMessage(messageFromServer)
     }
     
     return (
