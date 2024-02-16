@@ -1,16 +1,20 @@
 "use client";
-import { signOut } from 'next-auth/react';
-import React, { useEffect } from 'react';
+import { toast } from "@/components/ui/use-toast";
+import { signOut } from "next-auth/react";
+import { useEffect } from "react";
 
 const SignOut = () => {
-    useEffect(() => {
-        signOut({
-            callbackUrl: '/',
-            redirect: true,
-        });
-    }, []);
+  useEffect(() => {
+    signOut({
+      callbackUrl: "/",
+      redirect: true,
+    });
+    toast({
+      description: "Déconnecté.e !",
+    });
+  }, []);
 
-    return null;
+  return null;
 };
 
 export default SignOut;
