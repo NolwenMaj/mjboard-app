@@ -8,6 +8,7 @@ import CharacterCards from "@/app/components/CharacterCards";
 import SideMenu from "@/app/components/SideMenu";
 import { ScrollIcon, UsersIcon } from "@/components/ui/customIcons";
 
+
 const DashboardPage = () => {
   const sideMenu = [
     {
