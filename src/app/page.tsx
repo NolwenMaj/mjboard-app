@@ -1,12 +1,9 @@
-'use client'
-import React from "react"
+"use client";
 
 export default function Home() {
   return (
-    
-      <div className='w-full'>
-        <h1 className='text- 3x1'>HOME PAGE</h1>
-      </div>
-
-  )
+    <div className="w-full items-center justify-center h-screen flex ">
+      <p>Cette page est en construction</p>
+    </div>
+  );
 }
