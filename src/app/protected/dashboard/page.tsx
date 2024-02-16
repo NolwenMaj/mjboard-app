@@ -4,7 +4,7 @@
  * @see https://v0.dev/t/R8FdfAHdwEB
  * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
  */
-import { Badge } from "@/components/ui/badge";
+import SideMenu from "@/app/components/SideMenu";
 import {
   Card,
   CardContent,
@@ -12,32 +12,28 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import Link from "next/link";
+
 const DashboardPage = () => {
+  const sideMenu = [
+    {
+      title: "Personnages",
+      total: 4,
+      path: "#",
+      icon: <UsersIcon className="h-4 w-4" />,
+    },
+    {
+      title: "Notes séances",
+      total: 4,
+      path: "#",
+      icon: <ScrollIcon className="h-4 w-4" />,
+    },
+  ];
+
   return (
     <div className="flex flex-col min-h-screen w-full">
       <main className="flex-1 grid md:grid-cols-[250px_1fr]">
         <div className="border-r py-4 md:py-8">
-          <nav className="flex flex-col items-start gap-1 px-4">
-            <Link
-              className="flex items-center gap-3 rounded-lg bg-gray-100 px-3 py-2 text-gray-900  transition-all hover:text-gray-900 dark:bg-gray-800 dark:text-gray-50 dark:hover:text-gray-50"
-              href="#"
-            >
-              <UsersIcon className="h-4 w-4" />
-              Personnages
-              <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
-                4
-              </Badge>
-            </Link>
-
-            <Link
-              className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-              href="#"
-            >
-              <ScrollIcon className="h-4 w-4" />
-              Notes séances
-            </Link>
-          </nav>
+          <SideMenu tabs={sideMenu} />
         </div>
         <div className="flex flex-col gap-4 p-4 md:gap-8 md:p-10">
           <div className="grid gap-4 md:grid-cols-2">
