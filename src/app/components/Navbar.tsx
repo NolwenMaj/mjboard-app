@@ -1,4 +1,10 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { getServerSession } from "next-auth/next";
 import Link from "next/link";
 import { authOptions } from "../api/auth/[...nextauth]/route";
@@ -26,11 +32,19 @@ const Navbar = async () => {
             </Link>
           </div>
           <div className="flex flex-row items-center gap-1 justify-end">
-            <Avatar>
-              <AvatarImage src="https://github.com/shadcn.png" />
-              <AvatarFallback>CN</AvatarFallback>
-            </Avatar>
-            <p>{session.user?.email}</p>
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger>
+                  <Avatar>
+                    <AvatarImage src="https://github.com/shadcn.png" />
+                    <AvatarFallback>CN</AvatarFallback>
+                  </Avatar>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>{session.user?.email}</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
           </div>
         </div>
       ) : (
