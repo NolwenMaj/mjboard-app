@@ -1,13 +1,12 @@
 "use client";
-import CharacterCards from "@/app/components/CharacterCards";
 /**
  * v0 by Vercel.
  * @see https://v0.dev/t/R8FdfAHdwEB
  * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
  */
+import { CharactersDashboard } from "@/app/components/CharactersDashboard";
 import SideMenu from "@/app/components/SideMenu";
 import { ScrollIcon, UsersIcon } from "@/components/ui/customIcons";
-
 
 const DashboardPage = () => {
   const sideMenu = [
@@ -50,9 +49,7 @@ const DashboardPage = () => {
         <div className="border-r py-4 md:py-8">
           <SideMenu tabs={sideMenu} />
         </div>
-        <div className="flex flex-col gap-4 p-4 md:gap-8 md:p-10">
-          <CharacterCards characters={characters} />
-        </div>
+        <CharactersDashboard />
       </main>
     </div>
   );
