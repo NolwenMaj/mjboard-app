@@ -56,7 +56,7 @@ export default function NewCharacterSheet() {
             </div>
             <div className="flex items-start">
               <div className="w-12 h-12 rounded-lg overflow-hidden">
-                <img
+                {/* <img
                   alt="Avatar"
                   className="object-cover w-full h-full"
                   height="100"
@@ -66,7 +66,7 @@ export default function NewCharacterSheet() {
                     objectFit: "cover",
                   }}
                   width="100"
-                />
+                /> */}
               </div>
               <Button className="h-8 w-8 ml-auto shrink-0" variant="outline">
                 <FileEditIcon className="w-4 h-4" />

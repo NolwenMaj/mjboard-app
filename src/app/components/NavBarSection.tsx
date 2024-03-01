@@ -1,28 +1,29 @@
 import { Badge } from "@/components/ui/badge";
+import Link from "next/link";
 
-export type MenuSectionProps = {
+export type NavBarSectionProps = {
   title: string;
-  onpress: () => void;
+  path: string;
   icon: React.ReactNode;
   total?: number;
 };
 
-export const MenuSection = (menuSection: MenuSectionProps) => {
+export const NavBarSection = (navBarSection: NavBarSectionProps) => {
   return (
-    <main
-      onClick={menuSection.onpress}
+    <Link
+      href={navBarSection.path}
       role="button"
       tabIndex={0}
       className="flex items-center gap-3 rounded-lg bg-gray-100 p-3 m-1 text-gray-900  transition-all hover:text-gray-900 dark:bg-gray-800 dark:text-gray-50 dark:hover:text-gray-50"
     >
-      {menuSection.icon}
-      {menuSection.title}
-      {menuSection.total ? (
+      {navBarSection.icon}
+      {navBarSection.title}
+      {navBarSection.total ? (
         <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
-          {menuSection.total}
+          {navBarSection.total}
         </Badge>
       ) : undefined}
-    </main>
+    </Link>
   );
 };
-export default MenuSection;
+export default NavBarSection;

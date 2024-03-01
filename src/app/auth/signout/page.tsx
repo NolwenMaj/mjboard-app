@@ -1,10 +1,20 @@
-import SignOut from '@/app/components/SignOut'
-import React from 'react'
+"use client";
+import { toast } from "@/components/ui/use-toast";
+import { signOut } from "next-auth/react";
+import { useEffect } from "react";
 
 const SignOutPage = () => {
-  return (
-    <SignOut />
-  )
-}
+  useEffect(() => {
+    signOut({
+      callbackUrl: "/",
+      redirect: true,
+    });
+    toast({
+      description: "Déconnecté.e !",
+    });
+  }, []);
 
-export default SignOutPage
+  return null;
+};
+
+export default SignOutPage;

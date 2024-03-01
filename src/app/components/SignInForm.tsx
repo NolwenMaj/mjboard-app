@@ -44,7 +44,7 @@ const SignInForm = () => {
   useEffect(() => {
     if (status === "authenticated") {
       router.refresh();
-      router.push("/protected/dashboard");
+      router.push("/protected/dashboardCharacters");
       setMessage("Connecté.e !");
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
