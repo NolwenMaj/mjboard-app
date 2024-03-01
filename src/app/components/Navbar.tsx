@@ -49,17 +49,8 @@ const Navbar = async () => {
         </div>
       ) : (
         <div className="flex gap-5">
-          <Link
-            className="text-gray-500 dark:text-gray-400"
-            href="/auth/signin"
-          >
-            Se connecter
-          </Link>
-          <Link
-            className="text-gray-500 dark:text-gray-400"
-            href="/auth/signup"
-          >
-            Inscription
+          <Link className="text-gray-500 dark:text-gray-400" href="/auth">
+            Auth
           </Link>
         </div>
       )}
