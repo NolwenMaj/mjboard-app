@@ -1,25 +1,41 @@
 "use client";
+import { CharacterCardProps } from "@/app/components/CharacterCard";
+import { CharactersDashboard } from "@/app/components/CharactersDashboard";
 import NotesDashboard, { NotesProps } from "@/app/components/NotesDashboard";
 import SideMenu from "@/app/components/SideMenu";
 import { ScrollIcon, UsersIcon } from "@/components/ui/customIcons";
+import { useState } from "react";
 
-const DashboardPage = () => {
+type DashboardPageProps = "charactersSection" | "notesSection";
+
+const DashboardPage = ({ section }: { section: DashboardPageProps }) => {
+  const [activeSection, setActiveSection] = useState<
+    "charactersSection" | "notesSection"
+  >("charactersSection");
+
+  const handleCharacterSectionClick = () => {
+    setActiveSection("charactersSection");
+  };
+
+  const handleNotesSectionClick = () => {
+    setActiveSection("notesSection");
+  };
   const sideMenu = [
     {
       title: "Personnages",
       total: 4,
-      path: "#",
+      onpress: handleCharacterSectionClick,
       icon: <UsersIcon className="h-4 w-4" />,
     },
     {
       title: "Notes séances",
       total: 4,
-      path: "#",
+      onpress: handleNotesSectionClick,
       icon: <ScrollIcon className="h-4 w-4" />,
     },
   ];
 
-  const characters = [
+  const mockCharacters: CharacterCardProps[] = [
     {
       id: 1,
       name: "Gandalf",
@@ -73,9 +89,17 @@ const DashboardPage = () => {
     <div className="flex flex-col min-h-screen w-full">
       <main className="flex-1 grid md:grid-cols-[250px_1fr]">
         <div className="border-r py-4 md:py-8">
-          <SideMenu tabs={sideMenu} />
+          <SideMenu
+            tabs={sideMenu}
+            onCharacterSectionClick={handleCharacterSectionClick}
+            onNotesSectionClick={handleNotesSectionClick}
+          />
         </div>
-        <NotesDashboard datas={mockData} />
+        {activeSection == "charactersSection" ? (
+          <CharactersDashboard characters={mockCharacters} />
+        ) : (
+          <NotesDashboard datas={mockData} />
+        )}
       </main>
     </div>
   );

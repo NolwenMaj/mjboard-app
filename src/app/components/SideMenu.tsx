@@ -1,13 +1,25 @@
 import { MenuSection, MenuSectionProps } from "./MenuSection";
 
-const SideMenu = ({ tabs }: { tabs: MenuSectionProps[] }) => {
+const SideMenu = ({
+  tabs,
+  onCharacterSectionClick,
+  onNotesSectionClick,
+}: {
+  tabs: MenuSectionProps[];
+  onCharacterSectionClick: () => void;
+  onNotesSectionClick: () => void;
+}) => {
   return (
-    <nav className="flex flex-col items-start gap-1 px-4 w-full">
+    <nav className="flex-1 flex-col items-start gap-1 px-4 w-full">
       {tabs.map((tab: MenuSectionProps) => (
         <MenuSection
           title={tab.title}
-          total={4}
-          path={tab.path}
+          total={tab.total}
+          onpress={
+            tab.title === "Personnages"
+              ? onCharacterSectionClick
+              : onNotesSectionClick
+          }
           icon={tab.icon}
           key={tab.title}
         />
