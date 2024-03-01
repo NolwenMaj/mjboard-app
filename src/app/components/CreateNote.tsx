@@ -3,6 +3,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 
 const CreateNote = () => {
+  const handleSubmit = () => {
+    console.log(`note ajoutée`);
+  };
   return (
     <main className="flex flex-col gap-4 w-full">
       <Card>
@@ -20,7 +23,9 @@ const CreateNote = () => {
           />
         </CardContent>
         <div className="flex justify-end gap-2 m-1 p-1">
-          <Button type="submit">Ajouter</Button>
+          <Button onClick={handleSubmit} type="submit">
+            Ajouter
+          </Button>
         </div>
       </Card>
     </main>
