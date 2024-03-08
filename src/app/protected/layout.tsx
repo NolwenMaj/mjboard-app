@@ -1,3 +1,4 @@
+import SideNavBar from "@/_components/SideNavBar";
 import { getServerSession } from "next-auth/next";
 import React from "react";
 import { authOptions } from "../api/auth/[...nextauth]/route";
@@ -13,7 +14,14 @@ const ProtectedLayout = async ({ children }: ProtectedLayoutProps) => {
     return <div>This is protected and you do not have access to it.</div>;
   }
 
-  return <>{children}</>;
+  return (
+    <>
+      <main className="flex-1 grid md:grid-cols-[250px_1fr]">
+        <SideNavBar />
+        {children}
+      </main>
+    </>
+  );
 };
 
 export default ProtectedLayout;

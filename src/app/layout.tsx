@@ -2,7 +2,6 @@ import { Toaster } from "@/_components/ui/toaster";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Provider from "../_components/Provider";
-import SideNavBar from "../_components/SideNavBar";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -20,11 +19,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className + " bg-gray-100"}>
-        <main className="flex-1 grid md:grid-cols-[250px_1fr]">
-          <SideNavBar />
-          <Provider>{children}</Provider>
-          <Toaster />
-        </main>
+        <Provider>{children}</Provider>
+        <Toaster />
       </body>
     </html>
   );
