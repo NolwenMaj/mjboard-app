@@ -1,6 +1,6 @@
 "use client";
 
-import { ScrollIcon, UsersIcon } from "@/components/ui/customIcons";
+import { ScrollIcon, UsersIcon } from "@/_components/ui/customIcons";
 import AvatarAccount from "./AvatarAccount";
 import NavBarSection, { NavBarSectionProps } from "./NavBarSection";
 

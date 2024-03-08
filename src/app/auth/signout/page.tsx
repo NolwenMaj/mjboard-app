@@ -1,5 +1,5 @@
 "use client";
-import { toast } from "@/components/ui/use-toast";
+import { toast } from "@/_components/ui/use-toast";
 import { signOut } from "next-auth/react";
 import { useEffect } from "react";
 

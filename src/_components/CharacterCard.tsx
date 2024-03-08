@@ -4,12 +4,12 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
+} from "@/_components/ui/card";
 import {
   ChevronRightIcon,
   HeartIcon,
   ShieldIcon,
-} from "@/components/ui/customIcons";
+} from "@/_components/ui/customIcons";
 
 export type CharacterCardProps = {
   id: number;

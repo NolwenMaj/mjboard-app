@@ -1,10 +1,10 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { useToast } from "@/components/ui/use-toast";
+import { Button } from "@/_components/ui/button";
+import { CardContent, CardHeader, CardTitle } from "@/_components/ui/card";
+import { Input } from "@/_components/ui/input";
+import { Label } from "@/_components/ui/label";
+import { useToast } from "@/_components/ui/use-toast";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -56,6 +56,7 @@ const SignInForm = () => {
         description: message,
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [message]);
 
   return (

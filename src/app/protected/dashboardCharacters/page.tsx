@@ -1,11 +1,9 @@
 "use client";
-import CharacterCard, {
-  CharacterCardProps,
-} from "@/app/components/CharacterCard";
-import { mockCharacters } from "@/app/lib/mockDatas";
+import CharacterCard, { CharacterCardProps } from "@/_components/CharacterCard";
+import { mockCharacters } from "@/_utils/mockDatas";
 
-import { Card, CardContent } from "@/components/ui/card";
-import { ChevronRightIcon } from "@/components/ui/customIcons";
+import { Card, CardContent } from "@/_components/ui/card";
+import { ChevronRightIcon } from "@/_components/ui/customIcons";
 import Link from "next/link";
 
 const DashboardCharacters = () => {

@@ -1,8 +1,8 @@
-import { Toaster } from "@/components/ui/toaster";
+import { Toaster } from "@/_components/ui/toaster";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Provider from "./components/Provider";
-import SideNavBar from "./components/SideNavBar";
+import Provider from "../_components/Provider";
+import SideNavBar from "../_components/SideNavBar";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
