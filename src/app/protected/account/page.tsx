@@ -8,9 +8,8 @@ const AccountManagementPage = () => {
       </h1>
       <ul className="flex flex-col gap-3 m-6">
         <li className="flex flex-col gap-3">A venir :</li>
-        <li className="flex flex-col gap-3">modifier mail </li>
-        <li className="flex flex-col gap-3">changer mot de passe</li>
-        <li className="flex flex-col gap-3">supprimer compte </li>
+        <li className="flex flex-col gap-3"> - modifier mail </li>
+        <li className="flex flex-col gap-3"> - supprimer compte </li>
       </ul>
       <Link
         href="/auth/signOut"

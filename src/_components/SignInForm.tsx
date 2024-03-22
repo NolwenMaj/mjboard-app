@@ -6,6 +6,7 @@ import { Input } from "@/_components/ui/input";
 import { Label } from "@/_components/ui/label";
 import { useToast } from "@/_components/ui/use-toast";
 import { signIn, useSession } from "next-auth/react";
+/* import Link from "next/link"; */
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -87,6 +88,13 @@ const SignInForm = () => {
         <Button className="w-full" onClick={handleSubmit}>
           Se connecter
         </Button>
+        {/* <Link
+          href="/auth/forgetPassword"
+          role="button"
+          className=" text-sm italic flex text-center text-grey-500  hover:text-gray-400 "
+        >
+          mot de passe oublié
+        </Link> */}
       </CardContent>
     </>
   );
