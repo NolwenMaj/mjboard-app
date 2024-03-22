@@ -18,11 +18,6 @@ const SideNavBar = () => {
       icon: <ScrollIcon className="h-4 w-4" />,
     },
     {
-      title: "Déconnexion",
-      path: "/auth/signOut",
-      icon: <ScrollIcon className="h-4 w-4" />,
-    },
-    {
       title: "Compte",
       path: "/protected/account",
       icon: <AvatarAccount />,
