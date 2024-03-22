@@ -36,9 +36,8 @@ const SignInForm = () => {
       }
     } catch (err) {
       console.log(err);
+      setMessage("Une erreur s'est produite lors de la connexion.");
     }
-
-    setMessage(message);
   };
 
   useEffect(() => {
