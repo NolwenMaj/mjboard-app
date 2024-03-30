@@ -2,22 +2,33 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 datasource db {
-  provider     = "mysql"
-  url          = env("DATABASE_URL")
-  relationMode = "prisma"
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+
 }
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
 }
 
 model User {
-  id           String @id @default(cuid())
-  email        String @unique
+  id           Int              @id @default(autoincrement())
+  email        String           @unique
+  role         Role             @default(USER)
   passwordHash String
+  created_at DateTime @default(now())
+  updated_at        DateTime           @updatedAt @default(now())
 }
 
 model Character {
   id   String @id @default(cuid())
   name String
+}
+
+
+enum Role {
+  USER
+  ADMIN
 }

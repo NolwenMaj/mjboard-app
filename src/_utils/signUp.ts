@@ -4,14 +4,18 @@ import prisma from "@/_utils/prisma";
 import bcrypt from "bcryptjs";
 
 export const signUp = async (email: string, password: string) => {
-  const user = await prisma.user.findUnique({
+  if (!email) {
+    throw new Error("L'email est requis");
+  }
+
+  const isUserExisting = await prisma.user.findUnique({
     where: {
       email,
     },
   });
 
-  if (user) {
-    return "User with that email already exists.";
+  if (isUserExisting) {
+    return "Inscription impossible";
   }
 
   const passwordHash = bcrypt.hashSync(password, 10);
@@ -23,5 +27,5 @@ export const signUp = async (email: string, password: string) => {
     },
   });
 
-  return "Successfully created new user";
+  return "Inscription réussie";
 };
