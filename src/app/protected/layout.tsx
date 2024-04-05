@@ -1,3 +1,4 @@
+import Footer from "@/_components/Footer";
 import SideNavBar from "@/_components/SideNavBar";
 import { getServerSession } from "next-auth/next";
 import React from "react";
@@ -15,12 +16,15 @@ const ProtectedLayout = async ({ children }: ProtectedLayoutProps) => {
   }
 
   return (
-    <>
-      <main className="flex-1 grid md:grid-cols-[250px_1fr]">
+    <body className="flex flex-row min-h-screen">
+      <div className="w-1/6 flex-shrink-0">
         <SideNavBar />
-        {children}
-      </main>
-    </>
+      </div>
+      <div className="flex flex-col">
+        <main className="flex-grow">{children}</main>
+        <Footer />
+      </div>
+    </body>
   );
 };
 
