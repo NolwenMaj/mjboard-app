@@ -43,8 +43,8 @@ const SignInForm = () => {
 
   useEffect(() => {
     if (status === "authenticated") {
-      router.refresh();
       router.push("/protected/tableChoice");
+      router.refresh();
       setMessage("Connecté.e !");
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

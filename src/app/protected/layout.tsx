@@ -1,6 +1,7 @@
 import Footer from "@/_components/Footer";
 import SideNavBar from "@/_components/SideNavBar";
 import { getServerSession } from "next-auth/next";
+import Link from "next/link";
 import React from "react";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 
@@ -11,12 +12,18 @@ interface ProtectedLayoutProps {
 const ProtectedLayout = async ({ children }: ProtectedLayoutProps) => {
   const session = await getServerSession(authOptions);
 
-  if (!session || !session.user?.email) {
-    return <div>This is protected and you do not have access to it.</div>;
-  }
-
-  return (
-    <body className="flex flex-row min-h-screen">
+  return !session || !session.user?.email ? (
+    <main className="flex flex-col min-h-screen w-full items-center justify-center align-middle">
+      <h1 className="text-3xl font-bold text-left text-gray-900 w-1/2">
+        Espace protégé, merci de vous{" "}
+        <Link href="/auth" className="italic underline">
+          connecter
+        </Link>{" "}
+        avec un compte valide pour accéder à cette page.
+      </h1>
+    </main>
+  ) : (
+    <div className="flex flex-row min-h-screen">
       <div className="w-1/6 flex-shrink-0">
         <SideNavBar />
       </div>
@@ -24,7 +31,7 @@ const ProtectedLayout = async ({ children }: ProtectedLayoutProps) => {
         <main className="flex-grow">{children}</main>
         <Footer />
       </div>
-    </body>
+    </div>
   );
 };
 
