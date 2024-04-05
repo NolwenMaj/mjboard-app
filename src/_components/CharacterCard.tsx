@@ -15,9 +15,9 @@ export type CharacterCardProps = {
   id: number;
   name: string;
   description: string;
-  level: number;
-  hp: string;
-  class: string;
+  level?: number;
+  hp?: string;
+  class?: string;
 };
 
 export const CharacterCard = (character: CharacterCardProps) => {

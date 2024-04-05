@@ -1,10 +1,20 @@
 "use client";
-import { ScrollIcon, UsersIcon } from "@/_components/ui/customIcons";
+import {
+  LayersIcon,
+  ScrollIcon,
+  UsersIcon,
+} from "@/_components/ui/customIcons";
 import AvatarAccount from "./AvatarAccount";
 import NavBarSection, { NavBarSectionProps } from "./NavBarSection";
 
 const SideNavBar = () => {
   const tabsUserConnected: NavBarSectionProps[] = [
+    {
+      title: "Tables",
+      total: 3,
+      path: "/protected/tableChoice",
+      icon: <LayersIcon className="h-4 w-4" />,
+    },
     {
       title: "Personnages",
       total: 4,
