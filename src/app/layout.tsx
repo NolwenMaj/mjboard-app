@@ -1,6 +1,7 @@
 import { Toaster } from "@/_components/ui/toaster";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { DataProvider } from "../_components/DataProvider";
 import Provider from "../_components/Provider";
 import "./globals.css";
 
@@ -19,7 +20,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className + " bg-gray-100"}>
-        <Provider>{children}</Provider>
+        <Provider>
+          <DataProvider>{children}</DataProvider>
+        </Provider>
         <Toaster />
       </body>
     </html>

@@ -10,6 +10,7 @@ import {
   HeartIcon,
   ShieldIcon,
 } from "@/_components/ui/customIcons";
+import { useData } from "./DataProvider";
 
 export type CharacterCardProps = {
   id: number;
@@ -21,6 +22,7 @@ export type CharacterCardProps = {
 };
 
 export const CharacterCard = (character: CharacterCardProps) => {
+  const { name } = useData();
   return (
     <Card>
       <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
@@ -35,6 +37,7 @@ export const CharacterCard = (character: CharacterCardProps) => {
         <ChevronRightIcon className="w-4 h-4" />
       </CardHeader>
       <CardContent>
+        <p>{name}</p>
         <div className="grid gap-2">
           <div className="flex items-center gap-2">
             <span className="font-medium"> Niveau : {character.level}</span>
