@@ -23,7 +23,7 @@ const ForgetPassword = () => {
   useEffect(() => {
     if (sessionStatus === "authenticated") {
       router.refresh();
-      router.push("/protected/dashboardCharacters");
+      router.push("/dashboardCharacters");
     }
   }, [sessionStatus, router]);
 

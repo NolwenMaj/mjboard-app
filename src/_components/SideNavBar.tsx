@@ -12,24 +12,24 @@ const SideNavBar = () => {
     {
       title: "Tables",
       total: 3,
-      path: "/protected/tableChoice",
+      path: "/tableChoice",
       icon: <LayersIcon className="h-4 w-4" />,
     },
     {
       title: "Personnages",
       total: 4,
-      path: "/protected/dashboardCharacters",
+      path: "/dashboardCharacters",
       icon: <UsersIcon className="h-4 w-4" />,
     },
     {
       title: "Notes séances",
       total: 4,
-      path: "/protected/dashboardNotes",
+      path: "/dashboardNotes",
       icon: <ScrollIcon className="h-4 w-4" />,
     },
     {
       title: "Compte",
-      path: "/protected/account",
+      path: "/account",
       icon: <AvatarAccount />,
     },
   ];
