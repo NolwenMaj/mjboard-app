@@ -1,7 +1,7 @@
 "use client";
-import CreateNote from "../../../_components/CreateNote";
-import Note, { NoteProps } from "../../../_components/Note";
 import { mockNotes } from "../../../_utils/mockDatas";
+import CreateNote from "../../_components/CreateNote";
+import Note, { NoteProps } from "../../_components/Note";
 
 const DashboardNotes = () => {
   return (

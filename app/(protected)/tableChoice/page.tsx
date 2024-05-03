@@ -1,10 +1,10 @@
 "use client";
-import CharacterCard from "../../../_components/CharacterCard";
 import { mockTable } from "../../../_utils/mockDatas";
+import CharacterCard from "../../_components/CharacterCard";
 
 import Link from "next/link";
-import { Card, CardContent } from "../../../_components/ui/card";
-import { ChevronRightIcon } from "../../../_components/ui/customIcons";
+import { Card, CardContent } from "../../_components/ui/card";
+import { ChevronRightIcon } from "../../_components/ui/customIcons";
 
 const TableChoice = () => {
   return (

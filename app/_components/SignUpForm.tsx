@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { signUp } from "../_utils/signUp";
+import { signUp } from "../../_utils/signUp";
 import { Button } from "./ui/button";
 import { CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Input } from "./ui/input";

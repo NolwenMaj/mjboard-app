@@ -4,16 +4,16 @@ import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Button } from "../../../_components/ui/button";
+import { Button } from "../../_components/ui/button";
 import {
   Card,
   CardContent,
   CardHeader,
   CardTitle,
-} from "../../../_components/ui/card";
-import { Input } from "../../../_components/ui/input";
-import { Label } from "../../../_components/ui/label";
-import { toast } from "../../../_components/ui/use-toast";
+} from "../../_components/ui/card";
+import { Input } from "../../_components/ui/input";
+import { Label } from "../../_components/ui/label";
+import { toast } from "../../_components/ui/use-toast";
 
 const ForgetPassword = () => {
   const router = useRouter();

@@ -1,5 +1,5 @@
-import { CharacterCardProps } from "../_components/CharacterCard";
-import { NoteProps } from "../_components/Note";
+import { CharacterCardProps } from "../app/_components/CharacterCard";
+import { NoteProps } from "../app/_components/Note";
 
 export const mockCharacters: CharacterCardProps[] = [
   {

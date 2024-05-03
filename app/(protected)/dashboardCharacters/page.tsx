@@ -1,12 +1,12 @@
 "use client";
+import { mockCharacters } from "../../../_utils/mockDatas";
 import CharacterCard, {
   CharacterCardProps,
-} from "../../../_components/CharacterCard";
-import { mockCharacters } from "../../../_utils/mockDatas";
+} from "../../_components/CharacterCard";
 
 import Link from "next/link";
-import { Card, CardContent } from "../../../_components/ui/card";
-import { ChevronRightIcon } from "../../../_components/ui/customIcons";
+import { Card, CardContent } from "../../_components/ui/card";
+import { ChevronRightIcon } from "../../_components/ui/customIcons";
 
 const DashboardCharacters = () => {
   return (

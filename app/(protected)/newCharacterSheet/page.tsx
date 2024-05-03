@@ -3,9 +3,9 @@
  * @see https://v0.dev/t/p4xZ8PeWBsQ
  * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
  */
-import { Button } from "../../../_components/ui/button";
-import { FileEditIcon } from "../../../_components/ui/customIcons";
-import { Input } from "../../../_components/ui/input";
+import { Button } from "../../_components/ui/button";
+import { FileEditIcon } from "../../_components/ui/customIcons";
+import { Input } from "../../_components/ui/input";
 
 export default function NewCharacterSheet() {
   return (

@@ -1,8 +1,8 @@
 import { getServerSession } from "next-auth/next";
 import Link from "next/link";
 import React from "react";
-import Footer from "../../_components/Footer";
-import SideNavBar from "../../_components/SideNavBar";
+import Footer from "../_components/Footer";
+import SideNavBar from "../_components/SideNavBar";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 
 interface ProtectedLayoutProps {

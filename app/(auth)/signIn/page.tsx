@@ -1,12 +1,12 @@
-import SignInForm from "../../../_components/SignInForm";
-import { SignUpForm } from "../../../_components/SignUpForm";
-import { Card, CardContent } from "../../../_components/ui/card";
+import SignInForm from "../../_components/SignInForm";
+import { SignUpForm } from "../../_components/SignUpForm";
+import { Card, CardContent } from "../../_components/ui/card";
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "../../../_components/ui/tabs";
+} from "../../_components/ui/tabs";
 
 export default function AuthPage() {
   return (
