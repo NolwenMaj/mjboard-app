@@ -1,22 +1,18 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-datasource db {
-  provider  = "postgresql"
-  url       = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
+datasource prisma {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 generator client {
-  provider        = "prisma-client-js"
-  previewFeatures = ["driverAdapters"]
+  provider = "prisma-client-js"
 }
 
 // Modèle pour utilisateur.ice.s
 model User {
   id           Int      @id @default(autoincrement())
   email        String   @unique
-  role     Role @default(USER)
+  name         String?  @unique
+  role         Role     @default(USER)
   passwordHash String
   created_at   DateTime @default(now())
   updated_at   DateTime @default(now()) @updatedAt

@@ -5,13 +5,13 @@
   "tsx": true,
   "tailwind": {
     "config": "tailwind.config.ts",
-    "css": "app/globals.css",
+    "css": "src/app/globals.css",
     "baseColor": "stone",
     "cssVariables": true,
     "prefix": ""
   },
   "aliases": {
-    "components": "@/_components",
-    "utils": "@/_utils/utils"
+    "components": "@/lib/_components",
+    "utils": "@/lib/serverAction/twMerge"
   }
 }
