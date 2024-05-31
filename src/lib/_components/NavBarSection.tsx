@@ -1,11 +1,9 @@
 import Link from "next/link";
-import { Badge } from "./ui/badge";
 
 export type NavBarSectionProps = {
   title: string;
   path: string;
   icon: React.ReactNode;
-  total?: number;
 };
 
 export const NavBarSection = (navBarSection: NavBarSectionProps) => {
@@ -18,11 +16,6 @@ export const NavBarSection = (navBarSection: NavBarSectionProps) => {
     >
       {navBarSection.icon}
       {navBarSection.title}
-      {navBarSection.total ? (
-        <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
-          {navBarSection.total}
-        </Badge>
-      ) : undefined}
     </Link>
   );
 };

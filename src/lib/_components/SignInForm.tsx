@@ -43,7 +43,7 @@ const SignInForm = () => {
 
   useEffect(() => {
     if (status === "authenticated") {
-      router.push("/tableChoice");
+      router.push("/dashboard-notes");
       router.refresh();
       setMessage("Connecté.e !");
     }

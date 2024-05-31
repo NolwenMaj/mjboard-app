@@ -1,5 +1,3 @@
-"use client";
-import { useSession } from "next-auth/react";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import {
   Tooltip,
@@ -8,8 +6,9 @@ import {
   TooltipTrigger,
 } from "./ui/tooltip";
 
+import UserNameTooltip from "./UserNameTooltip";
+
 function AvatarAccount() {
-  const session = useSession();
   return (
     <TooltipProvider>
       <Tooltip>
@@ -20,7 +19,7 @@ function AvatarAccount() {
           </Avatar>
         </TooltipTrigger>
         <TooltipContent>
-          <p>{session.data?.user?.name}</p>
+          <UserNameTooltip />
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>

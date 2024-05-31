@@ -60,10 +60,6 @@ export const authOptions: NextAuthOptions = {
       },
     }),
   ],
-  pages: {
-    signIn: "/signIn",
-    signOut: "/signOut",
-  },
   secret: process.env.NEXTAUTH_SECRET,
   jwt: {
     async encode({ secret, token }) {

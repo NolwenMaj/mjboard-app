@@ -1,8 +1,12 @@
-"use client";
 import SignInForm from "@/lib/_components/SignInForm";
 import SignUpForm from "@/lib/_components/SignUpForm";
 import { Card, CardContent } from "@/lib/_components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@radix-ui/react-tabs";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/lib/_components/ui/tabs";
 
 export default function AuthPage() {
   return (

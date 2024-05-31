@@ -1,26 +1,12 @@
-"use client";
 import AvatarAccount from "./AvatarAccount";
 import NavBarSection, { NavBarSectionProps } from "./NavBarSection";
-import { LayersIcon, ScrollIcon, UsersIcon } from "./ui/customIcons";
+import { ScrollIcon } from "./ui/customIcons";
 
 const SideNavBar = () => {
   const tabsUserConnected: NavBarSectionProps[] = [
     {
-      title: "Tables",
-      total: 3,
-      path: "/tableChoice",
-      icon: <LayersIcon className="h-4 w-4" />,
-    },
-    {
-      title: "Personnages",
-      total: 4,
-      path: "/dashboardCharacters",
-      icon: <UsersIcon className="h-4 w-4" />,
-    },
-    {
       title: "Notes séances",
-      total: 4,
-      path: "/dashboardNotes",
+      path: "/dashboard-notes",
       icon: <ScrollIcon className="h-4 w-4" />,
     },
     {
@@ -37,7 +23,6 @@ const SideNavBar = () => {
           {tabsUserConnected.map((tab) => (
             <NavBarSection
               title={tab.title}
-              total={tab.total}
               path={tab.path}
               icon={tab.icon}
               key={tab.title}

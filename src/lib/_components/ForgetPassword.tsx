@@ -1,19 +1,16 @@
-"use client";
-
 import {
   Card,
   CardContent,
   CardHeader,
   CardTitle,
 } from "@/lib/_components/ui/card";
-import { Label } from "@/lib/_components/ui/label";
-import { toast } from "@/lib/_components/ui/use-toast";
-
+import { Label } from "@radix-ui/react-label";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 import { useEffect, useState } from "react";
+import { toast } from "./ui/use-toast";
 
 const ForgetPassword = () => {
   const router = useRouter();
@@ -67,15 +64,15 @@ const ForgetPassword = () => {
                 Merci de renseigner l&apos;email lié au compte :
               </Label>
               {/* <Input
-                id="currentPassword"
-                placeholder="ton@email.com"
-                required
-                type="email"
-              /> */}
+              id="currentPassword"
+              placeholder="ton@email.com"
+              required
+              type="email"
+            /> */}
             </div>
             {/* <Button className="w-full" onClick={handleSubmit}>
-              Valider
-            </Button> */}
+            Valider
+          </Button> */}
             <Link
               href="/auth"
               role="button"
