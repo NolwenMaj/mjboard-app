@@ -1,11 +1,16 @@
 "use client";
 import SignOut from "@/lib/_components/SignOut";
+import { toast } from "@/lib/_components/ui/use-toast";
+import deleteUser from "@/lib/serverAction/user/deleteUser";
 import { useSession } from "next-auth/react";
-import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const AccountManagementPage = () => {
+  const router = useRouter();
   const { data, update } = useSession();
   const [name, setName] = useState(data?.user?.name);
+  const [message, setMessage] = useState("");
 
   const handleSubmit = async (e: Event) => {
     e.preventDefault();
@@ -18,12 +23,28 @@ const AccountManagementPage = () => {
       },
     });
   };
+  const handleDeleteUser = async () => {
+    deleteUser();
+    setMessage("Compte supprimé");
+    router.push("/");
+    router.refresh();
+  };
+
+  useEffect(() => {
+    if (message != "") {
+      toast({
+        description: message,
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [message]);
 
   return (
     <main className="flex flex-col min-h-screen w-full items-center justify-center align-middle">
       <h1 className="text-3xl font-bold text-left text-gray-900 ">
         Gestion du compte {data?.user?.name}
       </h1>
+      <button onClick={() => handleDeleteUser()}>Supprimer le compte</button>
       <form onSubmit={() => handleSubmit}>
         <label>
           Name:
