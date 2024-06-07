@@ -1,6 +1,8 @@
+"use client";
 import { useSession } from "next-auth/react";
+import React from "react";
 
-const UserNameTooltip = () => {
+const UserNameTooltip: React.FC = () => {
   const session = useSession();
   const user = session.data?.user;
 
