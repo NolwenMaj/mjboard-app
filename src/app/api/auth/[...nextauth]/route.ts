@@ -103,8 +103,9 @@ export const authOptions: NextAuthOptions = {
       if (params.trigger === "update" && params?.user?.name) {
         params.token.name = params.user.name;
       }
-      if (params.user) {
-        params.token.email = params.user.email;
+      if (params.account && params.profile) {
+        params.token.accessToken = params.account.access_token;
+        params.token.id = params.account.id;
       }
       return params.token;
     },
