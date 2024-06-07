@@ -1,6 +1,7 @@
 datasource prisma {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 generator client {
@@ -17,8 +18,8 @@ model User {
   created_at   DateTime @default(now())
   updated_at   DateTime @default(now()) @updatedAt
 
-  // Relation avec les joueurs
-  players Player[]
+  // Relation avec les journaux
+  journals Journal[]
 }
 
 // Définition de l'énumération pour les rôles utilisateur.ice
@@ -27,111 +28,11 @@ enum Role {
   ADMIN
 }
 
-// Définition de l'énumération pour les rôles dans les tables de jeux
-enum PlayerRole {
-  PLAYER
-  GAME_MASTER
-}
-
-// Modèle pour les tables de jeux
-model Game {
-  id                 Int      @id @default(autoincrement())
-  name               String
-  background_picture String
-  description        String
-  created_at         DateTime @default(now())
-  updated_at         DateTime @default(now()) @updatedAt
-
-  // Relation avec les compétences
-  skills Skill[]
-  Field  Field[]
-  Player Player[]
-}
-
-// Modèle pour les compétences
-model Skill {
-  id          Int      @id @default(autoincrement())
-  game        Game     @relation(fields: [gameId], references: [id])
-  gameId      Int
-  name        String
-  description String
-  maximum     Int
-  minimum     Int
-  calcul      String
-  created_at  DateTime @default(now())
-
-  // Relation avec les associations de compétences des joueurs
-  playerSkills PlayerSkill[]
-}
-
-// Modèle pour les valeurs de champ
-model FieldValue {
-  id                   Int                    @id @default(autoincrement())
-  field                Field                  @relation(fields: [fieldId], references: [id])
-  fieldId              Int
-  type                 String
-  content_varchar      String?
-  content_boolean      Boolean?
-  content_integer      Int?
-  created_at           DateTime               @default(now())
-  PlayerCharacteristic PlayerCharacteristic[]
-}
-
-// Modèle pour les champs
-model Field {
+model Journal {
   id         Int      @id @default(autoincrement())
-  game       Game     @relation(fields: [gameId], references: [id])
-  gameId     Int
-  name       String
-  mandatory  Boolean
+  user       User     @relation(fields: [userId], references: [id])
+  userId     Int
+  content    String
   created_at DateTime @default(now())
-
-  // Relation avec les valeurs de champ
-  fieldValues FieldValue[]
-}
-
-// Modèle pour les caractéristiques du joueur
-model PlayerCharacteristic {
-  id           Int        @id @default(autoincrement())
-  player       Player     @relation(fields: [playerId], references: [id])
-  playerId     Int
-  fieldValue   FieldValue @relation(fields: [fieldValueId], references: [id])
-  fieldValueId Int
-  created_at   DateTime   @default(now())
-}
-
-// Modèle pour les joueurs
-model Player {
-  id              Int      @id @default(autoincrement())
-  user            User     @relation(fields: [userId], references: [id])
-  userId          Int
-  game            Game     @relation(fields: [gameId], references: [id])
-  gameId          Int
-  authorisation   String
-  gender          String
-  name            String
-  age             Int
-  past            String
-  purpose         String
-  secrets         String
-  life_points     Int
-  max_life_points Int
-  profile_picture String
-  created_at      DateTime @default(now())
-  updated_at      DateTime @default(now()) @updatedAt
-
-  // Relation avec les associations de compétences des joueurs
-  playerSkills         PlayerSkill[]
-  PlayerCharacteristic PlayerCharacteristic[]
-}
-
-// Modèle pour les associations de compétences des joueurs
-model PlayerSkill {
-  id         Int      @id @default(autoincrement())
-  player     Player   @relation(fields: [playerId], references: [id])
-  playerId   Int
-  skill      Skill    @relation(fields: [skillId], references: [id])
-  skillId    Int
-  score      Int
-  created_at DateTime @default(now())
+  updated_at DateTime @default(now()) @updatedAt
 }
