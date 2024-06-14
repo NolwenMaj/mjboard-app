@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "./ui/button";
 import {
   Card,
@@ -15,7 +16,7 @@ export type NoteProps = {
 };
 
 function Note(noteProps: NoteProps) {
-  const handleDelit = (id: number) => {
+  const handleDelete = (id: number) => {
     console.log(`${id} supprimé`);
   };
   const handleEdit = (id: number) => {
@@ -35,7 +36,7 @@ function Note(noteProps: NoteProps) {
           <p>{noteProps.content}</p>
         </CardContent>
         <div className="flex justify-end gap-2 m-1 p-1">
-          <Button type="submit" onClick={() => handleDelit(noteProps.id)}>
+          <Button type="submit" onClick={() => handleDelete(noteProps.id)}>
             Supprimer
           </Button>
           <Button type="submit" onClick={() => handleEdit(noteProps.id)}>
