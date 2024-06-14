@@ -23,9 +23,14 @@ const NewInputForm = () => {
       console.log(e);
     }
   };
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input defaultValue="Ma journée était ..." {...register("content")} />
+      <input
+        placeholder="Ma journée était ..."
+        defaultValue=""
+        {...register("content")}
+      />
       <input type="submit" />
     </form>
   );
