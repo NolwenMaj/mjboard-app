@@ -1,3 +1,4 @@
+"use client";
 import NewInputForm from "./NewInputForm";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 
