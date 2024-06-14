@@ -5,8 +5,6 @@ export const JournalsScrollView = async () => {
   const journals = await getAllJournals();
 
   return journals
-    ? journals.map((journal) => (
-        <JournalCard key={journal.id} journal={journal} />
-      ))
+    ? journals.map((journal) => <JournalCard key={journal.id} {...journal} />)
     : null;
 };
