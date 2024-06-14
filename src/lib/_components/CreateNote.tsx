@@ -10,7 +10,7 @@ const NewInputContainer = () => {
             Nouvelle note
           </CardTitle>
         </CardHeader>
-        <CardContent className="flex flex-col gap-2 w-full">
+        <CardContent className="w-full">
           <NewInputForm />
         </CardContent>
       </Card>

@@ -2,6 +2,7 @@
 import { useEffect } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { postJournal } from "../serverAction/journal/postJournal";
+import { Button } from "./ui/button";
 
 type FormValues = {
   content: string;
@@ -25,13 +26,20 @@ const NewInputForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="flex w-full justify-between gap-2"
+    >
       <input
+        className="w-full"
+        required={true}
         placeholder="Ma journée était ..."
         defaultValue=""
         {...register("content")}
       />
-      <input type="submit" />
+      <Button>
+        <input type="submit" />
+      </Button>
     </form>
   );
 };
