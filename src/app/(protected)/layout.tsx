@@ -22,15 +22,15 @@ const ProtectedLayout = async ({ children }: ProtectedLayoutProps) => {
       </h1>
     </main>
   ) : (
-    <div className="flex flex-row min-h-screen">
-      <div className="w-1/6 flex-shrink-0">
+    <main className="flex flex-row min-h-screen h-full">
+      <div className="w-1/6 flex-shrink-0 h-full">
         <SideNavBar />
       </div>
-      <div className="flex flex-col">
+      <div className="flex flex-col w-full">
         <main className="flex-grow">{children}</main>
         <Footer />
       </div>
-    </div>
+    </main>
   );
 };
 
