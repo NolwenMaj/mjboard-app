@@ -1,7 +1,8 @@
 "use client";
 import { useEffect } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { postJournal } from "../serverAction/journal/postJournal";
+
+import { postJournal } from "../serverAction";
 import { Button } from "./ui/button";
 
 type FormValues = {

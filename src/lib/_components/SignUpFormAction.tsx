@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
-import { signUp } from "../serverAction/user/signUp";
+
+import { signUp } from "../serverAction";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";

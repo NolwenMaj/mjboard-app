@@ -1,4 +1,4 @@
-import { getAllJournals } from "../serverAction/journal/getAllJournals";
+import { getAllJournals } from "../serverAction";
 import JournalCard from "./JournalCard";
 
 export const JournalsScrollView = async () => {

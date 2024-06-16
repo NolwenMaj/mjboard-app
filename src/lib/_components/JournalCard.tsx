@@ -1,5 +1,6 @@
 import { FunctionComponent } from "react";
-import { Journal } from "../serverAction/journal/getAllJournals";
+
+import { Journal } from "../types";
 import { JournalCardButton } from "./JournalCardButtons";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 
