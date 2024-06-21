@@ -21,7 +21,7 @@ export const JournalCardButton = ({ journalId }: { journalId: number }) => {
   };
 
   return (
-    <div className="flex justify-end gap-2 m-1 p-1">
+    <div className="m-1 flex justify-end gap-2 p-1">
       <Button type="submit" onClick={() => handleDelete(journalId)}>
         Supprimer
       </Button>

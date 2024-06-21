@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 
 const NewInputContainer = () => {
   return (
-    <main className="flex flex-col gap-4 w-full">
+    <main className="flex w-full flex-col gap-4">
       <Card>
         <CardHeader>
           <CardTitle className="text-base leading-none">

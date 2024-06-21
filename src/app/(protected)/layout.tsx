@@ -12,8 +12,8 @@ const ProtectedLayout = async ({ children }: ProtectedLayoutProps) => {
   const session = await getServerSession(authOptions);
 
   return !session || !session.user?.email ? (
-    <main className="flex flex-col min-h-screen w-full items-center justify-center align-middle">
-      <h1 className="text-3xl font-bold text-left text-gray-900 w-1/2">
+    <main className="flex min-h-screen w-full flex-col items-center justify-center align-middle">
+      <h1 className="w-1/2 text-left text-3xl font-bold text-gray-900">
         Espace protégé, merci de vous{" "}
         <Link href="/auth" className="italic underline">
           connecter
@@ -22,12 +22,12 @@ const ProtectedLayout = async ({ children }: ProtectedLayoutProps) => {
       </h1>
     </main>
   ) : (
-    <main className="flex flex-row min-h-screen h-full">
-      <div className="w-1/6 flex-shrink-0 h-full">
+    <main className="flex h-full min-h-screen flex-row">
+      <div className="h-full w-1/6 shrink-0">
         <SideNavBar />
       </div>
-      <div className="flex flex-col w-full">
-        <main className="flex-grow">{children}</main>
+      <div className="flex w-full flex-col">
+        <main className="grow">{children}</main>
         <Footer />
       </div>
     </main>

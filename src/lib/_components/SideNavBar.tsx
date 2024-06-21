@@ -7,7 +7,7 @@ const SideNavBar = () => {
     {
       title: "Notes séances",
       path: "/dashboard-notes",
-      icon: <ScrollIcon className="h-4 w-4" />,
+      icon: <ScrollIcon className="size-4" />,
     },
     {
       title: "Compte",
@@ -18,8 +18,8 @@ const SideNavBar = () => {
 
   return (
     <>
-      <nav className="border-r py-4 md:py-8 bg-white">
-        <div className="flex-1 flex-col items-start gap-1 px-4 overflow-y-auto">
+      <nav className="border-r bg-white py-4 md:py-8">
+        <div className="flex-1 flex-col items-start gap-1 overflow-y-auto px-4">
           {tabsUserConnected.map((tab) => (
             <NavBarSection
               title={tab.title}

@@ -10,7 +10,7 @@ const JournalCard: FunctionComponent<Journal> = (journal) => {
   const dateToDisplay = `le ${day} à ${creationDate.getHours()}h${creationDate.getMinutes()}`;
 
   return (
-    <main className="flex flex-col gap-4 w-full">
+    <main className="flex w-full flex-col gap-4">
       <Card>
         <CardHeader>
           <CardTitle className="text-base leading-none">

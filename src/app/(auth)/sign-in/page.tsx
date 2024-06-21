@@ -10,7 +10,7 @@ import {
 
 export default function AuthPage() {
   return (
-    <Card className="w-full max-w-sm mx-auto mt-4 pt-2">
+    <Card className="mx-auto mt-4 w-full max-w-sm pt-2">
       <CardContent className="space-y-4">
         <Tabs defaultValue="sign-in">
           <TabsList className="flex gap-4">

@@ -61,7 +61,7 @@ const SignInForm = () => {
 
   return (
     <>
-      <CardHeader className="text-center space-y-1">
+      <CardHeader className="space-y-1 text-center">
         <CardTitle className="text-2xl">Connexion</CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">

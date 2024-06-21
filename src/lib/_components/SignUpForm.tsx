@@ -4,7 +4,7 @@ import { CardContent, CardHeader, CardTitle } from "./ui/card";
 const SignUpForm = () => {
   return (
     <>
-      <CardHeader className="text-center space-y-1">
+      <CardHeader className="space-y-1 text-center">
         <CardTitle className="text-2xl">Inscription</CardTitle>
         <SignUpFormAction />
       </CardHeader>

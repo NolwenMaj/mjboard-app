@@ -53,9 +53,9 @@ const ForgetPassword = () => {
 
   return (
     sessionStatus !== "authenticated" && (
-      <Card className="w-full max-w-sm mx-auto mt-4 pt-2">
+      <Card className="mx-auto mt-4 w-full max-w-sm pt-2">
         <CardContent className="space-y-4">
-          <CardHeader className="text-center space-y-1">
+          <CardHeader className="space-y-1 text-center">
             <CardTitle className="text-2xl">Changer le mot de passe</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
@@ -76,7 +76,7 @@ const ForgetPassword = () => {
             <Link
               href="/auth"
               role="button"
-              className=" text-sm italic flex text-center text-grey-500  hover:text-gray-400 "
+              className=" text-grey-500 flex text-center text-sm italic  hover:text-gray-400 "
             >
               Retourner sur la page de connexion
             </Link>
