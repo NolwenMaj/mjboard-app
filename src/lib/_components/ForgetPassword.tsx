@@ -15,7 +15,7 @@ import useToasterMessage from "../hooks/useToasterMessage";
 const ForgetPassword = () => {
   const router = useRouter();
   const { setMessage } = useToasterMessage();
-  const { data: session, status: sessionStatus } = useSession();
+  const { status: sessionStatus } = useSession();
 
   useEffect(() => {
     if (sessionStatus === "authenticated") {
@@ -55,16 +55,8 @@ const ForgetPassword = () => {
               <Label htmlFor="currentPassword">
                 Merci de renseigner l&apos;email lié au compte :
               </Label>
-              {/* <Input
-              id="currentPassword"
-              placeholder="ton@email.com"
-              required
-              type="email"
-            /> */}
             </div>
-            {/* <Button className="w-full" onClick={handleSubmit}>
-            Valider
-          </Button> */}
+
             <Link
               href="/auth"
               role="button"
