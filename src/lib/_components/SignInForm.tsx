@@ -44,7 +44,7 @@ const SignInForm = () => {
 
   useEffect(() => {
     if (status === "authenticated") {
-      router.push("/dashboard-notes");
+      router.push("/journals");
       router.refresh();
       setMessage("Connecté.e !");
     }
