@@ -9,6 +9,7 @@ import { useToast } from "./ui/use-toast";
 /* import Link from "next/link"; */
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import useToasterMessage from "../hooks/useToasterMessage";
 
 const SignInForm = () => {
   const router = useRouter();
@@ -18,7 +19,7 @@ const SignInForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const [message, setMessage] = useState("");
+  const { setMessage } = useToasterMessage();
 
   const handleSubmit = async () => {
     setMessage("Connexion en cours...");
@@ -49,15 +50,6 @@ const SignInForm = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [status]);
-
-  useEffect(() => {
-    if (message != "") {
-      toast({
-        description: message,
-      });
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [message]);
 
   return (
     <>

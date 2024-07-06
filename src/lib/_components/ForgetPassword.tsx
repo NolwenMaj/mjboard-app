@@ -9,12 +9,12 @@ import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-import { useEffect, useState } from "react";
-import { toast } from "./ui/use-toast";
+import { useEffect } from "react";
+import useToasterMessage from "../hooks/useToasterMessage";
 
 const ForgetPassword = () => {
   const router = useRouter();
-  const [message, setMessage] = useState("");
+  const { setMessage } = useToasterMessage();
   const { data: session, status: sessionStatus } = useSession();
 
   useEffect(() => {
@@ -42,14 +42,6 @@ const ForgetPassword = () => {
       return setMessage("En cours...");
     }
   };
-  useEffect(() => {
-    if (message != "") {
-      toast({
-        description: message,
-      });
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [message]);
 
   return (
     sessionStatus !== "authenticated" && (
@@ -76,6 +68,7 @@ const ForgetPassword = () => {
             <Link
               href="/auth"
               role="button"
+              // eslint-disable-next-line tailwindcss/no-custom-classname
               className=" text-grey-500 flex text-center text-sm italic  hover:text-gray-400 "
             >
               Retourner sur la page de connexion

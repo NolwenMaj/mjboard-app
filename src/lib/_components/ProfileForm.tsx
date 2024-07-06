@@ -1,8 +1,8 @@
 // components/profile/ProfileEditForm.tsx
 import { User } from ".prisma/client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import useToasterMessage from "../hooks/useToasterMessage";
 import prisma from "../serverAction/prisma";
-import { toast } from "./ui/use-toast";
 
 interface ProfileFormProps {
   user: User;
@@ -12,7 +12,7 @@ const ProfileForm: React.FC<ProfileFormProps> = ({ user }) => {
   const placeholderName = user.name ? user.name : "";
   const [email, setEmail] = useState(user.email);
   const [name, setName] = useState(placeholderName);
-  const [message, setMessage] = useState("");
+  const { setMessage } = useToasterMessage();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,15 +27,6 @@ const ProfileForm: React.FC<ProfileFormProps> = ({ user }) => {
       setMessage("Il y a eu une erreur, profile non modifié");
     }
   };
-
-  useEffect(() => {
-    if (message != "") {
-      toast({
-        description: message,
-      });
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [message]);
 
   return (
     <form onSubmit={handleSubmit}>

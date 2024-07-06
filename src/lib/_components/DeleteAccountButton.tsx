@@ -1,11 +1,10 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import useToasterMessage from "../hooks/useToasterMessage";
 import deleteUser from "../serverAction/user/deleteUser";
-import { toast } from "./ui/use-toast";
 
 const DeleteAccountButton = () => {
-  const [message, setMessage] = useState("");
+  const { setMessage } = useToasterMessage();
   const router = useRouter();
   const handleDeleteUser = async () => {
     deleteUser();
@@ -13,15 +12,6 @@ const DeleteAccountButton = () => {
     router.push("/");
     router.refresh();
   };
-
-  useEffect(() => {
-    if (message != "") {
-      toast({
-        description: message,
-      });
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [message]);
 
   return (
     <button

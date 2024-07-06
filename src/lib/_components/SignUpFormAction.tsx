@@ -1,31 +1,23 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
+import useToasterMessage from "../hooks/useToasterMessage";
 import { signUp } from "../serverAction";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
-import { toast } from "./ui/use-toast";
 
 const SignUpFormAction = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const [message, setMessage] = useState("");
+  const { setMessage } = useToasterMessage();
 
   const handleSubmit = async () => {
     setMessage("Inscription en cours ...");
     const messageFromServer = await signUp(email, password);
     setMessage(messageFromServer);
   };
-
-  useEffect(() => {
-    if (message != "") {
-      toast({
-        description: message,
-      });
-    }
-  }, [message]);
 
   return (
     <>
