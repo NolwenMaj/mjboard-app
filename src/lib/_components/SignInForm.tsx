@@ -68,10 +68,10 @@ const SignInForm = () => {
           />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="password">Password</Label>
+          <Label htmlFor="password">Mot de passe</Label>
           <Input
             id="password"
-            placeholder="Password"
+            placeholder="Mot de passe"
             required
             type="password"
             onChange={(e) => setPassword(e.target.value)}
