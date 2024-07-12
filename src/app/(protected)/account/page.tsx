@@ -5,13 +5,13 @@ import SignOut from "@/lib/_components/auth/SignOut";
 const AccountManagementPage = () => {
   return (
     <main className="flex min-h-screen w-full flex-col items-center justify-center align-middle">
-      <h1 className="text-left text-3xl font-bold text-gray-900 ">
+      <h2 className="text-left text-3xl font-bold text-gray-900 m-6 ">
         Gestion du compte
-      </h1>
-      <div className="flex flex-row items-center justify-center gap-3">
-        <DeleteAccountButton />
-        <SignOut />
+      </h2>
+      <div className="flex flex-col gap-3 mt-2">
         <UpdateAccount />
+        <SignOut />
+        <DeleteAccountButton />
       </div>
     </main>
   );

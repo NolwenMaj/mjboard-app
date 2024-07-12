@@ -15,7 +15,7 @@ const DeleteAccountButton = () => {
   };
 
   return (
-    <Button type="submit" onClick={() => handleDeleteUser()}>
+    <Button className="mt-20" type="submit" onClick={() => handleDeleteUser()}>
       Supprimer le compte
     </Button>
   );

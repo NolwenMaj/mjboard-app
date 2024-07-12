@@ -15,7 +15,11 @@ const SignOut = () => {
     });
   };
 
-  return <Button onClick={handleSignOut}>Déconnexion</Button>;
+  return (
+    <Button className="mt-4" onClick={handleSignOut}>
+      Déconnexion
+    </Button>
+  );
 };
 
 export default SignOut;
