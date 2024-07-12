@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import useToasterMessage from "../../hooks/useToasterMessage";
 import { Button } from "../ui/button";
-import { CardContent, CardHeader, CardTitle } from "../ui/card";
+import { CardContent } from "../ui/card";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 
@@ -41,18 +41,15 @@ const SignInForm = () => {
 
   useEffect(() => {
     if (status === "authenticated") {
+      setMessage("Connecté.e !");
       router.push("/journals");
       router.refresh();
-      setMessage("Connecté.e !");
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [status]);
 
   return (
     <>
-      <CardHeader className="space-y-1 text-center">
-        <CardTitle className="text-2xl">Connexion</CardTitle>
-      </CardHeader>
       <CardContent className="space-y-4">
         <div className="space-y-2">
           <Label htmlFor="email">Email</Label>
