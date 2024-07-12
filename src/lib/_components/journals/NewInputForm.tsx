@@ -25,7 +25,7 @@ const NewInputForm = () => {
       postJournal(newJournal);
       router.refresh();
     } catch (e) {
-      console.log(e);
+      console.warn(e);
     }
   };
 

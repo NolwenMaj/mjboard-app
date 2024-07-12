@@ -1,13 +1,13 @@
 "use client";
 
 import { signIn, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import useToasterMessage from "../../hooks/useToasterMessage";
 import { Button } from "../ui/button";
 import { CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
-import useToasterMessage from "../../hooks/useToasterMessage";
 
 const SignInForm = () => {
   const router = useRouter();
@@ -33,8 +33,8 @@ const SignInForm = () => {
       } else {
         router.refresh();
       }
-    } catch (err) {
-      console.log(err);
+    } catch (e) {
+      console.warn(e);
       setMessage("Une erreur s'est produite lors de la connexion.");
     }
   };

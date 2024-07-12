@@ -11,5 +11,4 @@ export default async function deleteUser() {
       where: { email: session.user.email },
     });
   }
-  console.log("User deleted");
 }

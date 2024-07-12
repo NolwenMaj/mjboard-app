@@ -10,10 +10,9 @@ export const JournalCardButton = ({ journalId }: { journalId: number }) => {
     e.preventDefault();
     try {
       deleteJournal(journalId);
-      console.log(`${journalId} supprimé`);
       router.refresh();
     } catch (e) {
-      console.log(e);
+      console.warn(e);
     }
   };
 
@@ -21,10 +20,9 @@ export const JournalCardButton = ({ journalId }: { journalId: number }) => {
     e.preventDefault();
     try {
       //TODO : implémenter les fonctions serveurs nécéssaires
-      console.log(`${journalId} modifié`);
       router.refresh();
     } catch (e) {
-      console.log(e);
+      console.warn(e);
     }
   };
 
