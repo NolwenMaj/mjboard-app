@@ -1,17 +1,22 @@
 "use client";
-import { useRouter } from "next/navigation";
+import { signOut } from "next-auth/react";
 import useToasterMessage from "../../hooks/useToasterMessage";
 import deleteUser from "../../serverAction/user/deleteUser";
 import { Button } from "../ui/button";
 
 const DeleteAccountButton = () => {
   const { setMessage } = useToasterMessage();
-  const router = useRouter();
   const handleDeleteUser = async () => {
-    deleteUser();
-    setMessage("Compte supprimé");
-    router.push("/signin");
-    router.refresh();
+    try {
+      await deleteUser();
+      setMessage("Compte supprimé");
+      signOut({
+        callbackUrl: "/",
+        redirect: true,
+      });
+    } catch (e) {
+      console.warn(e);
+    }
   };
 
   return (

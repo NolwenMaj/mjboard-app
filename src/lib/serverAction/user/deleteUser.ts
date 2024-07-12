@@ -6,9 +6,9 @@ import { getServerSession } from "next-auth";
 
 export default async function deleteUser() {
   const session = await getServerSession(authOptions);
-  if (session?.user?.email) {
-    await prisma.user.delete({
+  let deleteUser;
+  if (session?.user?.email)
+    return (deleteUser = await prisma.user.delete({
       where: { email: session.user.email },
-    });
-  }
+    }));
 }
