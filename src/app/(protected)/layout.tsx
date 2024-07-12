@@ -15,7 +15,7 @@ const ProtectedLayout = async ({ children }: ProtectedLayoutProps) => {
     <main className="flex min-h-screen w-full flex-col items-center justify-center align-middle">
       <h1 className="w-1/2 text-left text-3xl font-bold text-gray-900">
         Espace protégé, merci de vous{" "}
-        <Link href="/auth" className="italic underline">
+        <Link href="/sign-in" className="italic underline">
           connecter
         </Link>{" "}
         avec un compte valide pour accéder à cette page.

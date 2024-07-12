@@ -7,7 +7,7 @@ import { toast } from "../ui/use-toast";
 const SignOut = () => {
   const handleSignOut = () => {
     signOut({
-      callbackUrl: "/sign-in",
+      callbackUrl: "/",
       redirect: true,
     });
     toast({
