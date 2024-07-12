@@ -2,7 +2,8 @@ import { FunctionComponent } from "react";
 
 import { Journal } from "../../types";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
-import { JournalCardButton } from "./JournalCardButtons";
+import { DeleteButton } from "./DeleteButton";
+import { EditButton } from "./EditButton";
 
 const JournalCard: FunctionComponent<Journal> = (journal) => {
   const creationDate = journal.created_at;
@@ -20,7 +21,10 @@ const JournalCard: FunctionComponent<Journal> = (journal) => {
         <CardContent className="pt-0">
           <p>{journal.content}</p>
         </CardContent>
-        <JournalCardButton journalId={journal.id} />
+        <div className="m-1 flex justify-end gap-2 p-1">
+          <DeleteButton journalId={journal.id} />
+          <EditButton journalId={journal.id} />
+        </div>
       </Card>
     </main>
   );
