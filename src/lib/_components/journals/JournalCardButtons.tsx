@@ -1,4 +1,5 @@
 "use client";
+import { updateJournal } from "@/lib/serverAction/journal/updateJournal";
 import { useRouter } from "next/navigation";
 import { deleteJournal } from "../../serverAction/journal/deleteJournal";
 import { Button } from "../ui/button";
@@ -19,7 +20,7 @@ export const JournalCardButton = ({ journalId }: { journalId: number }) => {
   const handleEdit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     try {
-      //TODO : implémenter les fonctions serveurs nécéssaires
+      updateJournal(journalId, { content: "blah" });
       router.refresh();
     } catch (e) {
       console.warn(e);
