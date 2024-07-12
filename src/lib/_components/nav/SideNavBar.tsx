@@ -17,17 +17,15 @@ const SideNavBar = () => {
   ];
 
   return (
-    <nav className="border-r bg-white py-4 md:py-8">
-      <div className="flex-1 flex-col items-start gap-1 overflow-y-auto px-4">
-        {tabsUserConnected.map((tab) => (
-          <NavBarSection
-            title={tab.title}
-            path={tab.path}
-            icon={tab.icon}
-            key={tab.title}
-          />
-        ))}
-      </div>
+    <nav className="sticky top-4 z-10 m-1 flex flex-col gap-1">
+      {tabsUserConnected.map((tab) => (
+        <NavBarSection
+          title={tab.title}
+          path={tab.path}
+          icon={tab.icon}
+          key={tab.title}
+        />
+      ))}
     </nav>
   );
 };

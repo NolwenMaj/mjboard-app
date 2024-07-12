@@ -22,8 +22,8 @@ const ProtectedLayout = async ({ children }: ProtectedLayoutProps) => {
       </h1>
     </main>
   ) : (
-    <main className="flex h-full min-h-screen flex-row">
-      <div className="h-full w-1/6 shrink-0">
+    <main className="flex flex-row ">
+      <div className="w-1/6 border-r">
         <SideNavBar />
       </div>
       <div className="flex w-full flex-col">
