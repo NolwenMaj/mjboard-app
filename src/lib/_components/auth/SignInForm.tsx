@@ -1,8 +1,8 @@
 "use client";
 
-import { signIn, useSession } from "next-auth/react";
+import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import useToasterMessage from "../../hooks/useToasterMessage";
 import { Button } from "../ui/button";
 import { CardContent } from "../ui/card";
@@ -11,11 +11,8 @@ import { Label } from "../ui/label";
 
 const SignInForm = () => {
   const router = useRouter();
-  const { status } = useSession();
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const { setMessage } = useToasterMessage();
 
   const handleSubmit = async () => {
@@ -31,6 +28,8 @@ const SignInForm = () => {
       if (!signInResponse || signInResponse.ok !== true) {
         setMessage("Connexion impossible");
       } else {
+        setMessage("Connecté.e !");
+        router.push("/journals");
         router.refresh();
       }
     } catch (e) {
@@ -38,15 +37,6 @@ const SignInForm = () => {
       setMessage("Une erreur s'est produite lors de la connexion.");
     }
   };
-
-  useEffect(() => {
-    if (status === "authenticated") {
-      setMessage("Connecté.e !");
-      router.push("/journals");
-      router.refresh();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [status]);
 
   return (
     <>
