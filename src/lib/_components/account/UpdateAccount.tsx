@@ -1,7 +1,7 @@
 "use client";
 import { useSession } from "next-auth/react";
 import { useEffect } from "react";
-import { useUpdateName } from "../hooks/useUpdateName";
+import { useUpdateName } from "../../hooks/useUpdateName";
 
 const AccountPage = () => {
   const { data: session, status } = useSession();

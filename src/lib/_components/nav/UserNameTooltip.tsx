@@ -3,6 +3,7 @@ import { useSession } from "next-auth/react";
 import React from "react";
 
 const UserNameTooltip: React.FC = () => {
+  console.log("user name tooltip");
   const session = useSession();
   const user = session.data?.user;
 

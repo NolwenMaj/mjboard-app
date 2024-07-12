@@ -1,5 +1,5 @@
-import { JournalsScrollView } from "@/lib/_components/journal/JournalsScrollview";
-import NewInputContainer from "@/lib/_components/journal/NewInputContainer";
+import { JournalsScrollView } from "@/lib/_components/journals/JournalsScrollview";
+import NewInputContainer from "@/lib/_components/journals/NewInputContainer";
 
 const DashboardJournals = () => {
   return (

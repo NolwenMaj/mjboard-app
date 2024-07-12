@@ -10,7 +10,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 import { useEffect } from "react";
-import useToasterMessage from "../hooks/useToasterMessage";
+import useToasterMessage from "../../hooks/useToasterMessage";
 
 const ForgetPassword = () => {
   const router = useRouter();

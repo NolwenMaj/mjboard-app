@@ -1,7 +1,6 @@
 import DeleteAccountButton from "@/lib/_components/account/DeleteAccountButton";
+import UpdateAccount from "@/lib/_components/account/UpdateAccount";
 import SignOut from "@/lib/_components/auth/SignOut";
-
-import UpdateAccount from "@/lib/_components/UpdateAccount";
 
 const AccountManagementPage = () => {
   return (
