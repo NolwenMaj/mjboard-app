@@ -4,15 +4,24 @@ import JournalCard from "./JournalCard";
 export const JournalsScrollView = async () => {
   const journals = await getAllJournals();
 
-  return !journals || journals.length === 0 ? (
-    <div className="flex size-full flex-col items-center justify-center">
-      <p className="text-xl font-bold">Pas encore de journal à afficher</p>
-    </div>
-  ) : (
-    <div className="flex-col-reverse">
-      {journals?.map((journal) => (
-        <JournalCard key={journal.id} {...journal} />
-      ))}
-    </div>
-  );
+  if (!journals || journals.length === 0) {
+    return (
+      <div className="flex size-full flex-col items-center justify-center">
+        <p className="text-xl font-bold">Pas encore de journal à afficher</p>
+      </div>
+    );
+  } else {
+    const journalsSorted = journals.sort(
+      (a, b) =>
+        new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+    );
+
+    return (
+      <div className="flex flex-col gap-4">
+        {journalsSorted?.map((journal) => (
+          <JournalCard key={journal.id} {...journal} />
+        ))}
+      </div>
+    );
+  }
 };
