@@ -1,4 +1,4 @@
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import { ScrollIcon } from "./ui/customIcons";
 import {
   Tooltip,
   TooltipContent,
@@ -13,10 +13,9 @@ function AvatarAccount() {
     <TooltipProvider>
       <Tooltip>
         <TooltipTrigger>
-          <Avatar>
-            <AvatarImage src="https://github.com/shadcn.png" />
-            <AvatarFallback>CN</AvatarFallback>
-          </Avatar>
+          <div className="w-100 h-100 bg-rose-800">
+            <ScrollIcon className="size-4" />
+          </div>
         </TooltipTrigger>
         <TooltipContent>
           <UserNameTooltip />

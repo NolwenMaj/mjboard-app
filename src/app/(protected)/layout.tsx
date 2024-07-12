@@ -1,5 +1,5 @@
-import Footer from "@/lib/_components/Footer";
-import SideNavBar from "@/lib/_components/SideNavBar";
+import Footer from "@/lib/_components/nav/Footer";
+import SideNavBar from "@/lib/_components/nav/SideNavBar";
 import { getServerSession } from "next-auth";
 import Link from "next/link";
 import { authOptions } from "../api/auth/[...nextauth]/route";

@@ -1,13 +1,13 @@
-import CreateNote from "@/lib/_components/CreateNote";
-import { JournalsScrollView } from "@/lib/_components/JournalsScrollview";
+import { JournalsScrollView } from "@/lib/_components/journal/JournalsScrollview";
+import NewInputContainer from "@/lib/_components/journal/NewInputContainer";
 
-const DashboardNotes = () => {
+const DashboardJournals = () => {
   return (
     <main className="flex min-h-screen w-full flex-col gap-4 p-4">
-      <CreateNote />
+      <NewInputContainer />
       <JournalsScrollView />
     </main>
   );
 };
 
-export default DashboardNotes;
+export default DashboardJournals;

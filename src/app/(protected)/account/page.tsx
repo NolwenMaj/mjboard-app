@@ -1,6 +1,6 @@
-import DeleteAccountButton from "@/lib/_components/DeleteAccountButton";
-import NameDisplay from "@/lib/_components/NameDisplay";
-import SignOut from "@/lib/_components/SignOut";
+import DeleteAccountButton from "@/lib/_components/account/DeleteAccountButton";
+import SignOut from "@/lib/_components/auth/SignOut";
+
 import UpdateAccount from "@/lib/_components/UpdateAccount";
 
 const AccountManagementPage = () => {
@@ -9,7 +9,6 @@ const AccountManagementPage = () => {
       <h1 className="text-left text-3xl font-bold text-gray-900 ">
         Gestion du compte
       </h1>
-      <NameDisplay />
       <div className="flex flex-row items-center justify-center gap-3">
         <DeleteAccountButton />
         <SignOut />

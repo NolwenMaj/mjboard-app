@@ -2,6 +2,7 @@
 import { useEffect } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
+import { useRouter } from "next/navigation";
 import { postJournal } from "../serverAction";
 import { Button } from "./ui/button";
 
@@ -10,6 +11,7 @@ type FormValues = {
 };
 
 const NewInputForm = () => {
+  const router = useRouter();
   const { register, handleSubmit, reset, formState } = useForm<FormValues>();
 
   useEffect(() => {
@@ -21,6 +23,7 @@ const NewInputForm = () => {
   const onSubmit: SubmitHandler<FormValues> = async (newJournal) => {
     try {
       postJournal(newJournal);
+      router.refresh();
     } catch (e) {
       console.log(e);
     }

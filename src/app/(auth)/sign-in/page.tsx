@@ -1,5 +1,5 @@
-import SignInForm from "@/lib/_components/SignInForm";
-import SignUpForm from "@/lib/_components/SignUpForm";
+import SignInForm from "@/lib/_components/auth/SignInForm";
+import SignUpForm from "@/lib/_components/auth/SignUpForm";
 import { Card, CardContent } from "@/lib/_components/ui/card";
 import {
   Tabs,
