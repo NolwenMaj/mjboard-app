@@ -7,12 +7,12 @@ import { signUp } from "../../serverAction";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
+import RedirectionButton, { AuthPage } from "./RedirectionButton";
 
-const SignUpFormAction = () => {
+const SignUpForm = () => {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const { setMessage } = useToasterMessage();
 
   const handleSubmit = async () => {
@@ -48,8 +48,9 @@ const SignUpFormAction = () => {
       <Button className="w-full" onClick={handleSubmit}>
         S&apos;inscrire
       </Button>
+      <RedirectionButton pageName={AuthPage.SIGN_UP} />
     </>
   );
 };
 
-export default SignUpFormAction;
+export default SignUpForm;
