@@ -1,16 +1,9 @@
 "use server";
 
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { Journal } from "@/lib/types";
 import { PrismaClient } from "@prisma/client";
 import { getServerSession } from "next-auth";
-
-type Journal = {
-  content: string;
-  id: number;
-  userId: number;
-  created_at: Date;
-  updated_at?: Date;
-};
 
 export const postJournal = async (input: {
   content: string;
