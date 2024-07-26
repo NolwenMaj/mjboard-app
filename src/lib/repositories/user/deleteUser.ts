@@ -1,7 +1,7 @@
 "use server";
 
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import prisma from "@/lib/serverAction/prisma";
+import prisma from "@/lib/repositories/prisma";
 import { getServerSession } from "next-auth";
 
 export default async function deleteUser() {

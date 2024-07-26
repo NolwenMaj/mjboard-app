@@ -1,5 +1,5 @@
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import prisma from "@/lib/serverAction/prisma";
+import { updateUserName } from "@/lib/repositories/user/updateNameUser";
 import { getServerSession } from "next-auth/next";
 import { NextResponse } from "next/server";
 
@@ -8,7 +8,7 @@ export async function POST(req: Request) {
 
   if (!session || !session.user?.email) {
     return NextResponse.json(
-      { message: "Action non authorisée." },
+      { message: "Action non autorisée." },
       { status: 401 }
     );
   }
@@ -20,14 +20,9 @@ export async function POST(req: Request) {
   }
 
   try {
-    const updatedUser = await prisma.user.update({
-      where: { email: session.user.email },
-      data: { name },
-    });
-
+    const updatedUser = await updateUserName(session.user.email, name);
     return NextResponse.json({ user: updatedUser });
-  } catch (error) {
-    console.error("Error updating user:", error);
-    return NextResponse.json({ message: "Erreur serveur" }, { status: 500 });
+  } catch (error: any) {
+    return NextResponse.json({ message: error.message }, { status: 500 });
   }
 }

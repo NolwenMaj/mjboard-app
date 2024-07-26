@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 import { useRouter } from "next/navigation";
-import { postJournal } from "../../serverAction";
+import { postJournal } from "../../repositories";
 import { Button } from "../ui/button";
 
 type FormValues = {

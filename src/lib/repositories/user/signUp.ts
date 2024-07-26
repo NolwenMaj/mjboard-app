@@ -1,5 +1,5 @@
 "use server";
-import prisma from "@/lib/serverAction/prisma";
+import prisma from "@/lib/repositories/prisma";
 import bcrypt from "bcryptjs";
 
 export const signUp = async (email: string, password: string) => {

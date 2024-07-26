@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
-import { updateJournal } from "@/lib/serverAction/journal/updateJournal";
+import { updateJournal } from "@/lib/repositories/journal/updateJournal";
 import { Journal } from "@/lib/types";
 import { useRouter } from "next/navigation";
 import { Button } from "../ui/button";

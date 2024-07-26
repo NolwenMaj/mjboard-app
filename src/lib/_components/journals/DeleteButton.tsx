@@ -1,5 +1,5 @@
 "use client";
-import { deleteJournal } from "@/lib/serverAction";
+import { deleteJournal } from "@/lib/repositories";
 import { useRouter } from "next/navigation";
 import { Button } from "../ui/button";
 

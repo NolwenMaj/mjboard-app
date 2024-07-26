@@ -1,4 +1,4 @@
-import prisma from "@/lib/serverAction/prisma";
+import prisma from "@/lib/repositories/prisma";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";

@@ -1,4 +1,5 @@
 "use client";
+import { useSession } from "next-auth/react";
 import { useState } from "react";
 
 export const useUpdateName = () => {
@@ -6,6 +7,7 @@ export const useUpdateName = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
+  const { data: session, status, update } = useSession();
 
   const updateName = async () => {
     setLoading(true);
@@ -18,18 +20,18 @@ export const useUpdateName = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name }),
       });
+      () => {
+        update({ name: name });
+      };
 
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(
-          errorData.message || "Votre nom n'a pas pu être mis à jour."
-        );
+        throw new Error(errorData.message);
       }
 
-      const data = await response.json();
-      setSuccess("Votre nom a bien été mis à jour.");
-    } catch (error) {
-      setError(error.message);
+      setSuccess("Name was successfully updated");
+    } catch (e: any) {
+      setError(e.message);
     } finally {
       setLoading(false);
     }

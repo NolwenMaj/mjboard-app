@@ -1,2 +1,2 @@
-export * from "./serverAction";
+export * from "./repositories";
 export * from "./types";

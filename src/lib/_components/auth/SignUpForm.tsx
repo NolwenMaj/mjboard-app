@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import { useRouter } from "next/navigation";
 import useToasterMessage from "../../hooks/useToasterMessage";
-import { signUp } from "../../serverAction";
+import { signUp } from "../../repositories";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
