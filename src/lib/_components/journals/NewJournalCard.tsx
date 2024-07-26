@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
-import NewInputForm from "./NewInputForm";
+import NewInputForm from "./NewJournalForm";
 
-const NewInputContainer = () => {
+const NewJournalCard = () => {
   return (
     <Card className="flex w-full flex-col gap-4 bg-gray-100">
       <CardHeader>
@@ -16,4 +16,4 @@ const NewInputContainer = () => {
   );
 };
 
-export default NewInputContainer;
+export default NewJournalCard;

@@ -4,7 +4,7 @@ import { Journal } from "@/lib/types";
 import { useState } from "react";
 import { Button } from "../ui/button";
 import { DeleteButton } from "./DeleteButton";
-import EditJournalForm from "./EditJournalForm";
+import EditJournalForm from "./JournalUpdateForm";
 
 export const JournalCardContent = ({ journal }: { journal: Journal }) => {
   const [isEditing, setIsEditing] = useState(false);
