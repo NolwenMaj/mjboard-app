@@ -5,9 +5,8 @@ import { useUpdateName } from "../../hooks/useUpdateName";
 import { Button } from "../ui/button";
 
 const AccountPage = () => {
-  const { data: session, status } = useSession();
-  const { name, setName, loading, error, success, updateName } =
-    useUpdateName();
+  const { data: session } = useSession();
+  const { name, setName, loading, updateName } = useUpdateName();
 
   useEffect(() => {
     if (session?.user?.name) {
