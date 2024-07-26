@@ -3,18 +3,16 @@ import NewInputForm from "./NewInputForm";
 
 const NewInputContainer = () => {
   return (
-    <main className="flex w-full flex-col gap-4">
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-base leading-none">
-            Nouveau journal
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="w-full">
-          <NewInputForm />
-        </CardContent>
-      </Card>
-    </main>
+    <Card className="flex w-full flex-col gap-4 bg-gray-100">
+      <CardHeader>
+        <CardTitle className="text-base font-thin italic leading-none">
+          Nouveau journal
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="w-full">
+        <NewInputForm />
+      </CardContent>
+    </Card>
   );
 };
 
