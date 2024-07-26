@@ -26,8 +26,8 @@ export const authOptions: NextAuthOptions = {
           placeholder: "ton@email.fr",
         },
         password: {
-          password: "Mot de passe",
-          type: "text",
+          label: "Mot de passe",
+          type: "password",
           placeholder: "Mot de passe",
         },
       },
@@ -55,8 +55,11 @@ export const authOptions: NextAuthOptions = {
         if (!isValidPassword) {
           return null;
         }
-
-        return user;
+        return {
+          id: user.id.toString(),
+          email: user.email,
+          name: user.name,
+        };
       },
     }),
   ],
