@@ -2,11 +2,10 @@
 
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { Responses } from "@/lib/types";
-import { PrismaClient } from "@prisma/client";
 import { getServerSession } from "next-auth";
+import prisma from "../prisma";
 
 export const getAllResponses = async (): Promise<Responses | undefined> => {
-  const prisma = new PrismaClient();
   const session = await getServerSession(authOptions);
   let user;
   let responses;

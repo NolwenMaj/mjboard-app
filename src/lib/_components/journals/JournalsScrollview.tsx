@@ -1,4 +1,4 @@
-import { getAllResponses } from "../../repositories";
+import { getAllResponses } from "@/lib/repositories";
 import JournalCard from "./JournalCard";
 
 export const JournalsScrollView = async () => {

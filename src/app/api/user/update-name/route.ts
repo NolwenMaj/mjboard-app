@@ -1,5 +1,5 @@
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import { updateUserName } from "@/lib/repositories/user/updateNameUser";
+import updateUserName from "@/lib/repositories/user/updateNameUser";
 import { getServerSession } from "next-auth/next";
 import { NextResponse } from "next/server";
 

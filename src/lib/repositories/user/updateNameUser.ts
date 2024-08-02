@@ -1,6 +1,6 @@
 import prisma from "@/lib/repositories/prisma";
 
-export const updateUserName = async (currentEmail: string, newName: string) => {
+const updateUserName = async (currentEmail: string, newName: string) => {
   try {
     const updatedUser = await prisma.user.update({
       where: { email: currentEmail },
@@ -12,3 +12,5 @@ export const updateUserName = async (currentEmail: string, newName: string) => {
     throw new Error("Erreur serveur");
   }
 };
+
+export default updateUserName;

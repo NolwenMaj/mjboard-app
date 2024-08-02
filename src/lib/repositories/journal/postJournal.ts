@@ -2,13 +2,12 @@
 
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { Response } from "@/lib/types";
-import { PrismaClient } from "@prisma/client";
 import { getServerSession } from "next-auth";
+import prisma from "../prisma";
 
 export const postJournal = async (input: {
   content: string;
 }): Promise<Response | undefined> => {
-  const prisma = new PrismaClient();
   const session = await getServerSession(authOptions);
   let user;
   let newJournal;

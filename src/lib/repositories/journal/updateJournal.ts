@@ -1,7 +1,7 @@
 "use server";
 
 import { Response } from "@/lib/types";
-import { PrismaClient } from "@prisma/client";
+import prisma from "../prisma";
 
 export const updateJournal = async (
   responseId: Response["id"],
@@ -9,7 +9,6 @@ export const updateJournal = async (
     content: string;
   }
 ): Promise<Response | undefined> => {
-  const prisma = new PrismaClient();
   let updatedJournal = await prisma.response?.update({
     where: {
       id: responseId,

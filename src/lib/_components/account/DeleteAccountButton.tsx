@@ -1,7 +1,7 @@
 "use client";
+import deleteUser from "@/lib/repositories/user/deleteUser";
 import { signOut } from "next-auth/react";
 import useToasterMessage from "../../hooks/useToasterMessage";
-import deleteUser from "../../repositories/user/deleteUser";
 import { Button } from "../ui/button";
 
 const DeleteAccountButton = () => {

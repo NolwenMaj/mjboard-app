@@ -2,7 +2,7 @@
 import prisma from "@/lib/repositories/prisma";
 import bcrypt from "bcryptjs";
 
-export const signUp = async (email: string, password: string) => {
+const signUp = async (email: string, password: string) => {
   if (!email) {
     throw new Error("L'email est requis");
   }
@@ -28,3 +28,5 @@ export const signUp = async (email: string, password: string) => {
 
   return "Inscription réussie";
 };
+
+export default signUp;
