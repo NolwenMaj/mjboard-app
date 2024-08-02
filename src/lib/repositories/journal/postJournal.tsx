@@ -1,13 +1,13 @@
 "use server";
 
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import { Journal } from "@/lib/types";
+import { Response } from "@/lib/types";
 import { PrismaClient } from "@prisma/client";
 import { getServerSession } from "next-auth";
 
 export const postJournal = async (input: {
   content: string;
-}): Promise<Journal | undefined> => {
+}): Promise<Response | undefined> => {
   const prisma = new PrismaClient();
   const session = await getServerSession(authOptions);
   let user;
@@ -19,10 +19,11 @@ export const postJournal = async (input: {
       },
     });
     user
-      ? (newJournal = await prisma.journal.create({
+      ? (newJournal = await prisma.response.create({
           data: {
             content: input?.content,
             userId: user.id,
+            questionId: 1,
           },
         }))
       : undefined;

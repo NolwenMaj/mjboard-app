@@ -1,4 +1,4 @@
-export type Journal = {
+export type Response = {
   content: string;
   id: number;
   userId: number;
@@ -6,7 +6,7 @@ export type Journal = {
   updated_at?: Date;
 };
 
-export type Journals = Journal[];
+export type Responses = Response[];
 
 export enum Color {
   WHITE = "#F2F2F2",

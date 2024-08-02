@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 import { updateJournal } from "@/lib/repositories/journal/updateJournal";
-import { Journal } from "@/lib/types";
+import { Response } from "@/lib/types";
 import { useRouter } from "next/navigation";
 import { Button } from "../ui/button";
 
@@ -12,10 +12,10 @@ type FormValues = {
 };
 
 const JournalUpdateForm = ({
-  journal,
+  response,
   onEdit,
 }: {
-  journal: Journal;
+  response: Response;
   onEdit: () => void;
 }) => {
   const router = useRouter();
@@ -29,7 +29,7 @@ const JournalUpdateForm = ({
 
   const onSubmit: SubmitHandler<FormValues> = async (newJournal) => {
     try {
-      updateJournal(journal.id, {
+      updateJournal(response.id, {
         content: newJournal.content,
       });
       onEdit();
@@ -56,7 +56,7 @@ const JournalUpdateForm = ({
         placeholder=""
         autoFocus={true}
         maxLength={1000}
-        defaultValue={journal.content}
+        defaultValue={response.content}
         {...register("content")}
       />
       <div className="flex justify-end gap-2 ">

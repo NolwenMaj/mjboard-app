@@ -1,25 +1,25 @@
 "use client";
 
-import { Journal } from "@/lib/types";
+import { Response } from "@/lib/types";
 import { useState } from "react";
 import { Button } from "../ui/button";
 import { DeleteButton } from "./DeleteButton";
 import EditJournalForm from "./JournalUpdateForm";
 
-export const JournalCardContent = ({ journal }: { journal: Journal }) => {
+export const JournalCardContent = ({ response }: { response: Response }) => {
   const [isEditing, setIsEditing] = useState(false);
 
   return !isEditing ? (
     <>
-      <p className="min-h-10 text-base ">{journal.content}</p>
+      <p className="min-h-10 text-base ">{response.content}</p>
       <div className="flex justify-end gap-2">
-        <DeleteButton journalId={journal.id} />
+        <DeleteButton responseId={response.id} />
         <Button type="submit" onClick={() => setIsEditing(true)}>
           Editer
         </Button>
       </div>
     </>
   ) : (
-    <EditJournalForm journal={journal} onEdit={() => setIsEditing(false)} />
+    <EditJournalForm response={response} onEdit={() => setIsEditing(false)} />
   );
 };

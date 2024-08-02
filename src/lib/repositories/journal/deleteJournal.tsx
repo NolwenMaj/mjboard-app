@@ -1,14 +1,14 @@
 "use server";
 
-import { Journal } from "@/lib/types";
+import { Response } from "@/lib/types";
 import { PrismaClient } from "@prisma/client";
 
-export const deleteJournal = async (journalId: Journal["id"]) => {
+export const deleteJournal = async (responseId: Response["id"]) => {
   const prisma = new PrismaClient();
-  let deleteJournal;
-  return (deleteJournal = await prisma.journal.delete({
+  let deleteResponse;
+  return (deleteResponse = await prisma.response?.delete({
     where: {
-      id: journalId,
+      id: responseId,
     },
   }));
 };

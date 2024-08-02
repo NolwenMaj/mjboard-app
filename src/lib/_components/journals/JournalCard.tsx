@@ -1,10 +1,10 @@
 import { FunctionComponent } from "react";
-import { Journal } from "../../types";
+import { Response } from "../../types";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { JournalCardContent } from "./JournalCardContent";
 
-const JournalCard: FunctionComponent<Journal> = (journal) => {
-  const creationDate = journal.created_at;
+const JournalCard: FunctionComponent<Response> = (response) => {
+  const creationDate = response.created_at;
   const day = creationDate.toLocaleDateString("fr");
   const dateToDisplay = `le ${day} à ${creationDate.getHours()}h${creationDate.getMinutes()}`;
 
@@ -16,7 +16,7 @@ const JournalCard: FunctionComponent<Journal> = (journal) => {
         </CardTitle>
       </CardHeader>
       <CardContent className="w-full">
-        <JournalCardContent journal={journal} />
+        <JournalCardContent response={response} />
       </CardContent>
     </Card>
   );

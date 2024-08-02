@@ -3,13 +3,13 @@ import { deleteJournal } from "@/lib/repositories";
 import { useRouter } from "next/navigation";
 import { Button } from "../ui/button";
 
-export const DeleteButton = ({ journalId }: { journalId: number }) => {
+export const DeleteButton = ({ responseId }: { responseId: number }) => {
   const router = useRouter();
 
   const handleDelete = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     try {
-      deleteJournal(journalId);
+      deleteJournal(responseId);
       router.refresh();
     } catch (e) {
       console.warn(e);

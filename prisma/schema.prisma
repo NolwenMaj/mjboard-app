@@ -8,31 +8,42 @@ generator client {
   provider = "prisma-client-js"
 }
 
-// Modèle pour utilisateur.ice.s
-model User {
-  id           Int      @id @default(autoincrement())
-  email        String   @unique
-  name         String?  @unique
-  role         Role     @default(USER)
-  passwordHash String
-  created_at   DateTime @default(now())
-  updated_at   DateTime @default(now()) @updatedAt
-
-  // Relation avec les journaux
-  journals Journal[]
-}
-
-// Définition de l'énumération pour les rôles utilisateur.ice
 enum Role {
   USER
   ADMIN
 }
 
-model Journal {
-  id         Int      @id @default(autoincrement())
-  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
-  userId     Int
+enum AnswerType {
+  STRING
+  BOOLEAN
+  NUMBER
+}
+
+model User {
+  id           Int        @id @default(autoincrement())
+  email        String     @unique
+  name         String?    @unique
+  role         Role       @default(USER)
+  passwordHash String
+  created_at   DateTime   @default(now())
+  updated_at   DateTime   @default(now()) @updatedAt
+  responses    Response[]
+}
+
+model Question {
+  id         Int        @id @default(autoincrement())
   content    String
+  answerType AnswerType @default(STRING)
+  responses  Response[]
+}
+
+model Response {
+  id         Int      @id @default(autoincrement())
+  content    String
+  userId     Int
+  questionId Int
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  question   Question @relation(fields: [questionId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   created_at DateTime @default(now())
   updated_at DateTime @default(now()) @updatedAt
 }
