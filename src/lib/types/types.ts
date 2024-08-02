@@ -1,7 +1,8 @@
 export type Response = {
-  content: string;
   id: number;
+  content: string;
   userId: number;
+  questionId: number;
   created_at: Date;
   updated_at?: Date;
 };

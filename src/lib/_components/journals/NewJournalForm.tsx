@@ -41,13 +41,11 @@ const NewJournalForm = () => {
       <input
         className="min-h-10 w-full rounded-md border-2 border-gray-300 bg-white focus:border-indigo-500 focus:outline-none"
         required={true}
-        placeholder="Ma journée était ..."
+        placeholder={"Comment je me suis sentie aujourd'hui ?"}
         defaultValue=""
         {...register("content")}
       />
-      <ConfettiCanvas
-        trigger={triggerConfettis}
-      />
+      <ConfettiCanvas trigger={triggerConfettis} />
       <div className="flex justify-end gap-2 ">
         <Button>
           <input type="submit" />

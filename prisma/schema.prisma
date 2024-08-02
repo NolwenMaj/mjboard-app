@@ -32,7 +32,7 @@ model User {
 
 model Question {
   id         Int        @id @default(autoincrement())
-  content    String
+  content    String     @unique
   answerType AnswerType @default(STRING)
   responses  Response[]
 }
