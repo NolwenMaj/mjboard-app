@@ -1,10 +1,11 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 import { useRouter } from "next/navigation";
 import { postJournal } from "../../repositories";
 import { Button } from "../ui/button";
+import ConfettiCanvas from "./ConfettiCanvas";
 
 type FormValues = {
   content: string;
@@ -13,6 +14,7 @@ type FormValues = {
 const NewJournalForm = () => {
   const router = useRouter();
   const { register, handleSubmit, reset, formState } = useForm<FormValues>();
+  const [triggerConfettis, setTriggerConfettis] = useState(false);
 
   useEffect(() => {
     if (formState.isSubmitSuccessful) {
@@ -23,6 +25,8 @@ const NewJournalForm = () => {
   const onSubmit: SubmitHandler<FormValues> = async (newJournal) => {
     try {
       postJournal(newJournal);
+      setTriggerConfettis(true);
+      setTimeout(() => setTriggerConfettis(false), 2000);
       router.refresh();
     } catch (e) {
       console.warn(e);
@@ -40,6 +44,9 @@ const NewJournalForm = () => {
         placeholder="Ma journée était ..."
         defaultValue=""
         {...register("content")}
+      />
+      <ConfettiCanvas
+        trigger={triggerConfettis}
       />
       <div className="flex justify-end gap-2 ">
         <Button>
