@@ -50,7 +50,7 @@ const JournalUpdateForm = ({
       className="flex w-full flex-col justify-between gap-2"
     >
       <input
-        className="min-h-10 w-full rounded-md border-2 border-gray-300 bg-white focus:border-indigo-500 focus:outline-none"
+        className="p-2 min-h-10 w-full rounded-md border-2 border-gray-300 bg-white focus:border-indigo-500 focus:outline-none"
         type="text"
         required={true}
         placeholder=""

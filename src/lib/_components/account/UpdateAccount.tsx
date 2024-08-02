@@ -18,7 +18,7 @@ const AccountPage = () => {
     <div className="flex flex-row gap-3 items-center">
       <label htmlFor="name">Nom: </label>
       <input
-        className="border-2 border-gray-300 rounded-md p-1"
+        className="border-2 border-gray-300 rounded-md p-2"
         id="name"
         type="text"
         value={name}
