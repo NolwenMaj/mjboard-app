@@ -1,9 +1,9 @@
 "use client";
 import { useState } from "react";
 
+import signUp from "@/lib/repositories/user/signUp";
 import { useRouter } from "next/navigation";
 import useToasterMessage from "../../hooks/useToasterMessage";
-import { signUp } from "../../repositories";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
