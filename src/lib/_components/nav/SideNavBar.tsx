@@ -1,18 +1,17 @@
-import { ScrollIcon } from "../ui/customIcons";
+import { ScrollIcon, UsersIcon } from "../ui/customIcons";
 import NavBarSection, { NavBarSectionProps } from "./NavBarSection";
-import UserIconWithTooltip from "./UserIconWithTooltip";
 
 const SideNavBar = () => {
   const tabsUserConnected: NavBarSectionProps[] = [
     {
       title: "Journaux",
       path: "/journals",
-      icon: <ScrollIcon className="size-4" />,
+      icon: <ScrollIcon />,
     },
     {
       title: "Compte",
       path: "/account",
-      icon: <UserIconWithTooltip />,
+      icon: <UsersIcon />,
     },
   ];
 
