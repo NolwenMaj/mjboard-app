@@ -20,9 +20,18 @@ const DeleteAccountButton = () => {
   };
 
   return (
-    <Button className="mt-20" type="submit" onClick={() => handleDeleteUser()}>
-      Supprimer le compte
-    </Button>
+    <div className="flex flex-col items-center gap-1 md:flex-row">
+      <h3 className="text-sm font-semibold md:text-xl">
+        Attention cette action est irréversible :{" "}
+      </h3>
+      <Button
+        className="bg-custOrange hover:bg-custOrange/80"
+        type="submit"
+        onClick={() => handleDeleteUser()}
+      >
+        Supprimer le compte
+      </Button>
+    </div>
   );
 };
 export default DeleteAccountButton;

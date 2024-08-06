@@ -2,6 +2,7 @@
 
 import { signOut } from "next-auth/react";
 import { Button } from "../ui/button";
+import { EscapeIcon } from "../ui/customIcons";
 import { toast } from "../ui/use-toast";
 
 const SignOut = () => {
@@ -16,9 +17,12 @@ const SignOut = () => {
   };
 
   return (
-    <Button className="mt-4" onClick={handleSignOut}>
-      Déconnexion
-    </Button>
+    <div className="flex items-center gap-2">
+      <label>Déconnexion</label>
+      <Button onClick={handleSignOut}>
+        <EscapeIcon />
+      </Button>
+    </div>
   );
 };
 

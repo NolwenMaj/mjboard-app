@@ -3,6 +3,7 @@ import { useSession } from "next-auth/react";
 import { useEffect } from "react";
 import { useUpdateName } from "../../hooks/useUpdateName";
 import { Button } from "../ui/button";
+import { FileEditIcon } from "../ui/customIcons";
 
 const AccountPage = () => {
   const { data: session } = useSession();
@@ -15,7 +16,7 @@ const AccountPage = () => {
   }, [session?.user?.name, setName]);
 
   return (
-    <div className="flex flex-row items-center gap-3">
+    <div className="flex flex-col gap-3 md:flex-row md:items-center">
       <label htmlFor="name">Nom: </label>
       <input
         className="rounded-md border-2 border-gray-300 p-2 focus:border-primary"
@@ -26,7 +27,7 @@ const AccountPage = () => {
         placeholder={session?.user?.name || "Minima Geste"}
       />
       <Button onClick={updateName} disabled={loading} className="w-24">
-        {loading ? "En cours" : "Modifier"}
+        {loading ? "En cours" : <FileEditIcon />}
       </Button>
     </div>
   );
