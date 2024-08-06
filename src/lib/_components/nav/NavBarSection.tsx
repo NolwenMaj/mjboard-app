@@ -12,9 +12,9 @@ export const NavBarSection = (navBarSection: NavBarSectionProps) => {
       href={navBarSection.path}
       role="button"
       tabIndex={0}
-      className="m-1 flex flex-col items-center gap-3 rounded-lg bg-gray-100 p-3 text-xs text-gray-900 transition-all  hover:text-gray-900 dark:bg-gray-800 dark:text-gray-50 dark:hover:text-gray-50 md:flex-row md:text-sm lg:text-base "
+      className="inline-flex items-center gap-1 rounded-md bg-secondary/30 p-2 font-light text-secondary-foreground ring-offset-background transition-colors hover:bg-secondary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 "
     >
-      {navBarSection.icon}
+      <span className="hidden md:block">{navBarSection.icon}</span>
       {navBarSection.title}
     </Link>
   );

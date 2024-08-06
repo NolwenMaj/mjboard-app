@@ -15,10 +15,10 @@ const AccountPage = () => {
   }, [session?.user?.name, setName]);
 
   return (
-    <div className="flex flex-row gap-3 items-center">
+    <div className="flex flex-row items-center gap-3">
       <label htmlFor="name">Nom: </label>
       <input
-        className="border-2 border-gray-300 rounded-md p-2"
+        className="rounded-md border-2 border-gray-300 p-2 focus:border-primary"
         id="name"
         type="text"
         value={name}

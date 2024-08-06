@@ -2,16 +2,19 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen w-full flex-col items-center justify-center align-middle">
-      <p>Bienvenue sur Journaling !</p>
-      <Link
-        href="/sign-in"
-        role="button"
-        // eslint-disable-next-line tailwindcss/no-custom-classname
-        className="text-grey-900 m-1 flex items-center gap-3 rounded-lg bg-gray-300 p-3  text-center transition-all hover:text-gray-900 dark:bg-gray-800 dark:text-gray-50 dark:hover:text-gray-50"
-      >
-        Authentification
-      </Link>
+    <main className="mt-24 flex w-full items-center justify-center">
+      <div className="flex flex-col items-center gap-6 align-middle">
+        <h1 className="text-7xl text-primary md:text-9xl"> Journaling </h1>
+        <div>
+          <Link
+            href="/sign-in"
+            role="button"
+            className=" inline-flex items-center whitespace-nowrap rounded-md bg-primary p-3 text-sm font-medium text-primary-foreground ring-offset-background transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+          >
+            Authentification
+          </Link>
+        </div>
+      </div>
     </main>
   );
 }
