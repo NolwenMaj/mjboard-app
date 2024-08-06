@@ -1,14 +1,14 @@
 "use client";
 
-import { getQuestion } from "@/lib/repositories/journal/getQuestion";
 import { Response } from "@/lib/types";
+import { Question } from "@prisma/client";
 import { useState } from "react";
 import { Button } from "../ui/button";
+import { FileEditIcon } from "../ui/customIcons";
 import { DeleteButton } from "./DeleteButton";
 import EditJournalForm from "./JournalUpdateForm";
-import { Question } from "@prisma/client";
 
-export const JournalCardContent =({
+export const JournalCardContent = ({
   response,
   question,
 }: {
@@ -26,7 +26,7 @@ export const JournalCardContent =({
       <div className="flex justify-end gap-2">
         <DeleteButton responseId={response.id} />
         <Button type="submit" onClick={() => setIsEditing(true)}>
-          Editer
+          <FileEditIcon />
         </Button>
       </div>
     </>

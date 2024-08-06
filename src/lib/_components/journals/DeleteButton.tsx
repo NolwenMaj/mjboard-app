@@ -2,6 +2,7 @@
 import { deleteJournal } from "@/lib/repositories";
 import { useRouter } from "next/navigation";
 import { Button } from "../ui/button";
+import { CircleXmark } from "../ui/customIcons";
 
 export const DeleteButton = ({ responseId }: { responseId: number }) => {
   const router = useRouter();
@@ -18,7 +19,7 @@ export const DeleteButton = ({ responseId }: { responseId: number }) => {
 
   return (
     <Button type="submit" onClick={handleDelete}>
-      Supprimer
+      <CircleXmark />
     </Button>
   );
 };
