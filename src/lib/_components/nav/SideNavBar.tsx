@@ -16,7 +16,7 @@ const SideNavBar = () => {
   ];
 
   return (
-    <nav className="sticky top-4 z-10 m-2 flex flex-col gap-1">
+    <nav className="sticky top-4 z-10 m-2 flex flex-row gap-1 md:flex-col">
       {tabsUserConnected.map((tab) => (
         <NavBarSection
           title={tab.title}
