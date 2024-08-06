@@ -1,5 +1,7 @@
-export { deleteJournal } from "./deleteJournal";
-export { getAllResponses } from "./getAllJournals";
-export { getQuestion } from "./getQuestion";
+export { deleteJournalById } from "./deleteJournalById";
+export { getAllQuestions } from "./getAllQuestions";
+export { getQuestionFromResponse } from "./getQuestionFromResponse";
+export { getResponsesFromJournalId } from "./getResponsesFromJournalId";
 export { postJournal } from "./postJournal";
-export { updateJournal } from "./updateJournal";
+export { updateResponse } from "./updateResponse";
+

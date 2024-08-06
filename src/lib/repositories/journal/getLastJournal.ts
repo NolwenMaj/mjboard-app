@@ -1,13 +1,12 @@
-"use server";
-
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { Journal } from "@prisma/client";
 import { getServerSession } from "next-auth";
 import prisma from "../prisma";
 import { getUserByEmail } from "../user/getUserByEmail";
 
-export const getAllJournals = async (): Promise<Journal[] | undefined> => {
+export const getLastJournal = async (): Promise<Journal | undefined> => {
   const session = await getServerSession(authOptions);
+
   if (!session?.user?.email) {
     return undefined;
   }
@@ -17,13 +16,16 @@ export const getAllJournals = async (): Promise<Journal[] | undefined> => {
     return undefined;
   }
 
-  const journals = await prisma.journal.findMany({
+  const lastJournal = await prisma.journal.findFirst({
     where: {
       userId: user.id,
     },
+    orderBy: {
+      created_at: "desc",
+    },
   });
-  if (!journals) {
+  if (!lastJournal) {
     return undefined;
   }
-  return journals;
+  return lastJournal;
 };

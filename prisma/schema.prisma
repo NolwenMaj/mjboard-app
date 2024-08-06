@@ -20,14 +20,23 @@ enum AnswerType {
 }
 
 model User {
-  id           Int        @id @default(autoincrement())
-  email        String     @unique
-  name         String?    @unique
-  role         Role       @default(USER)
+  id           Int       @id @default(autoincrement())
+  email        String    @unique
+  name         String?
+  role         Role      @default(USER)
   passwordHash String
-  created_at   DateTime   @default(now())
-  updated_at   DateTime   @default(now()) @updatedAt
-  responses    Response[]
+  created_at   DateTime  @default(now())
+  updated_at   DateTime  @default(now()) @updatedAt
+  journals     Journal[]
+}
+
+model Journal {
+  id         Int        @id @default(autoincrement())
+  userId     Int
+  user       User       @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  created_at DateTime   @default(now())
+  updated_at DateTime   @default(now()) @updatedAt
+  responses  Response[]
 }
 
 model Question {
@@ -40,10 +49,8 @@ model Question {
 model Response {
   id         Int      @id @default(autoincrement())
   content    String
-  userId     Int
+  journalId  Int
   questionId Int
-  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   question   Question @relation(fields: [questionId], references: [id], onDelete: Cascade, onUpdate: Cascade)
-  created_at DateTime @default(now())
-  updated_at DateTime @default(now()) @updatedAt
+  journal    Journal  @relation(fields: [journalId], references: [id], onDelete: Cascade, onUpdate: Cascade)
 }

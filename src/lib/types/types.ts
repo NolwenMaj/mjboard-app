@@ -1,13 +1,4 @@
-export type Response = {
-  id: number;
-  content: string;
-  userId: number;
-  questionId: number;
-  created_at: Date;
-  updated_at?: Date;
-};
-
-export type Responses = Response[];
+import { Question, Response } from "@prisma/client";
 
 export enum Color {
   WHITE = "#F2F2F2",
@@ -16,3 +7,8 @@ export enum Color {
   GREEN = "#B5D93B",
   ORANGE = "#F2A30F",
 }
+
+export type Section = {
+  question: Question;
+  response: Response;
+};

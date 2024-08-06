@@ -1,7 +1,10 @@
+import { getAllQuestions } from "@/lib/repositories";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
-import NewInputForm from "./NewJournalForm";
+import NewJournalForm from "./NewJournalForm";
 
-const NewJournalCard = () => {
+const NewJournalCard = async () => {
+  const questions = await getAllQuestions();
+  if (!questions) return null;
   return (
     <Card className="flex w-full flex-col gap-4 bg-gray-100">
       <CardHeader>
@@ -10,7 +13,7 @@ const NewJournalCard = () => {
         </CardTitle>
       </CardHeader>
       <CardContent className="w-full">
-        <NewInputForm />
+        <NewJournalForm questions={questions} />
       </CardContent>
     </Card>
   );

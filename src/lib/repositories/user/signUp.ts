@@ -1,19 +1,14 @@
 "use server";
 import prisma from "@/lib/repositories/prisma";
 import bcrypt from "bcryptjs";
+import { getUserByEmail } from "./getUserByEmail";
 
 const signUp = async (email: string, password: string) => {
   if (!email) {
     throw new Error("L'email est requis");
   }
 
-  const isUserExisting = await prisma.user.findUnique({
-    where: {
-      email,
-    },
-  });
-
-  if (isUserExisting) {
+  if ((await getUserByEmail(email)) != null) {
     return "Inscription impossible";
   }
 

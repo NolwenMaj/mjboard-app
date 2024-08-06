@@ -2,8 +2,8 @@
 import { useEffect } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
-import { updateJournal } from "@/lib/repositories/journal/updateJournal";
-import { Response } from "@/lib/types";
+import { updateResponse } from "@/lib/repositories";
+import { Response } from "@prisma/client";
 import { useRouter } from "next/navigation";
 import { Button } from "../ui/button";
 
@@ -29,7 +29,7 @@ const JournalUpdateForm = ({
 
   const onSubmit: SubmitHandler<FormValues> = async (newJournal) => {
     try {
-      updateJournal(response.id, {
+      updateResponse(response.id, {
         content: newJournal.content,
       });
       onEdit();

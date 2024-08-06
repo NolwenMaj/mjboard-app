@@ -1,20 +1,21 @@
 "use client";
+import { Question } from "@prisma/client";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-
-import { useRouter } from "next/navigation";
 import { postJournal } from "../../repositories";
 import { Button } from "../ui/button";
 import ConfettiCanvas from "./ConfettiCanvas";
 
 type FormValues = {
-  content: string;
+  responses: { [key: string]: string };
 };
 
-const NewJournalForm = () => {
+const NewJournalForm = ({ questions }: { questions: Question[] }) => {
   const router = useRouter();
   const { register, handleSubmit, reset, formState } = useForm<FormValues>();
   const [triggerConfettis, setTriggerConfettis] = useState(false);
+  const [disableSubmitButton, setDisableSubmitButton] = useState(false);
 
   useEffect(() => {
     if (formState.isSubmitSuccessful) {
@@ -22,11 +23,35 @@ const NewJournalForm = () => {
     }
   }, [formState, reset]);
 
-  const onSubmit: SubmitHandler<FormValues> = async (newJournal) => {
+  useEffect(() => {
+    const fetchLastJournal = async () => {
+      try {
+        const response = await fetch("/api/journal/last");
+        if (!response.ok) {
+          throw new Error("Failed to fetch last journal");
+        }
+        const result = await response.json();
+        const journal = result.message;
+
+        const sameDateAsLastJournal =
+          journal?.created_at &&
+          new Date(journal.created_at).toDateString() ===
+            new Date().toDateString();
+
+        setDisableSubmitButton(sameDateAsLastJournal);
+      } catch (error) {
+        console.error("Failed to fetch last journal:", error);
+      }
+    };
+    fetchLastJournal();
+  }, []);
+
+  const onSubmit: SubmitHandler<FormValues> = async (newJournalData) => {
     try {
-      postJournal(newJournal);
+      await postJournal(newJournalData);
       setTriggerConfettis(true);
       setTimeout(() => setTriggerConfettis(false), 2000);
+      setDisableSubmitButton(true);
       router.refresh();
     } catch (e) {
       console.warn(e);
@@ -38,20 +63,24 @@ const NewJournalForm = () => {
       onSubmit={handleSubmit(onSubmit)}
       className="flex w-full flex-col justify-between gap-2"
     >
-      <input
-        className="min-h-10 w-full rounded-md border-2 border-gray-300 bg-white p-2 focus:border-primary focus:outline-none"
-        required={true}
-        placeholder={"Comment je me suis sentie aujourd'hui ?"}
-        defaultValue=""
-        {...register("content")}
-      />
+      {questions.map((question) => (
+        <input
+          key={question.id}
+          className="min-h-10 w-full rounded-md border-2 border-gray-300 bg-white p-2 focus:border-primary focus:outline-none"
+          required={true}
+          placeholder={question.content}
+          defaultValue=""
+          {...register(`responses.${question.id}`)}
+        />
+      ))}
       <ConfettiCanvas trigger={triggerConfettis} />
-      <div className="flex justify-end gap-2 ">
-        <Button>
-          <input type="submit" />
+      <div className="flex justify-end gap-2">
+        <Button type="submit" disabled={disableSubmitButton}>
+          {disableSubmitButton ? "Déjà publié aujourd'hui" : "Publier"}
         </Button>
       </div>
     </form>
   );
 };
+
 export default NewJournalForm;
