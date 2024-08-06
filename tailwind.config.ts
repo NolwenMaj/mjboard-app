@@ -19,12 +19,14 @@ const config = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        custGreen: "#B5D93B",
+        custOrange: "#F2A30F",
         primary: {
-          DEFAULT: "hsl(var(--primary))",
+          DEFAULT: "#614BF2", // deep Purple
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
+          DEFAULT: "#7F6DF2", // light Purple
           foreground: "hsl(var(--secondary-foreground))",
         },
         destructive: {
