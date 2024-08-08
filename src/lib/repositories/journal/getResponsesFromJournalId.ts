@@ -10,6 +10,9 @@ export const getResponsesFromJournalId = async (
     where: {
       journalId: id,
     },
+    orderBy: {
+      id: "asc",
+    },
   });
   if (!responses) {
     return null;
