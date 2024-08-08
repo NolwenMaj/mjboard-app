@@ -2,17 +2,9 @@ import prisma from "@/lib/repositories/prisma";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import {
-  Account,
-  Profile,
-  Session,
-  User,
-  type NextAuthOptions,
-} from "next-auth";
-import { JWT } from "next-auth/jwt";
+import { type NextAuthOptions } from "next-auth";
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
-
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
@@ -89,28 +81,23 @@ export const authOptions: NextAuthOptions = {
     updateAge: 24 * 60 * 60,
   },
   callbacks: {
-    async session(params: { session: Session; token: JWT; user: User }) {
-      if (params.session.user) {
-        params.session.user.email = params.token.email;
+    async session({ session, token }) {
+      if (session.user) {
+        session.user.email = token.email;
+        session.user.name = token.name;
       }
-      return params.session;
+      return session;
     },
-    async jwt(params: {
-      token: JWT;
-      user?: User | undefined;
-      account?: Account | null | undefined;
-      profile?: Profile | undefined;
-      isNewUser?: boolean | undefined;
-      trigger?: "signIn" | "signUp" | "update" | "refresh" | undefined;
-    }) {
-      if (params.trigger === "update" && params?.user?.name) {
-        params.token.name = params.user.name;
+    async jwt({ token, user, trigger, session }) {
+      if (trigger === "update" && session.user.name) {
+        token.name = session.user.name;
       }
-      if (params.account && params.profile) {
-        params.token.accessToken = params.account.access_token;
-        params.token.id = params.account.id;
+      if (user) {
+        token.id = user.id;
+        token.name = user.name;
+        token.email = user.email;
       }
-      return params.token;
+      return token;
     },
   },
 };
