@@ -21,6 +21,9 @@ export const getAllJournals = async (): Promise<Journal[] | undefined> => {
     where: {
       userId: user.id,
     },
+    orderBy: {
+      created_at: "desc",
+    },
   });
   if (!journals) {
     return undefined;

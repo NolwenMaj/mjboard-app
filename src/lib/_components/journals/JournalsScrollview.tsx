@@ -10,14 +10,9 @@ export const JournalsScrollView = async () => {
       </div>
     );
   } else {
-    const journalsSorted = journals.sort(
-      (a, b) =>
-        new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
-    );
-
     return (
       <div className="flex flex-col gap-4">
-        {journalsSorted?.map((journal) => (
+        {journals?.map((journal) => (
           <JournalCard key={journal.id} {...journal} />
         ))}
       </div>
