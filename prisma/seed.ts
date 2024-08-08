@@ -15,11 +15,6 @@ const users = [
     email: "user2@prisma.io",
     passwordHash: dummyPasswordHash,
   },
-  {
-    id: 3,
-    email: "user3@prisma.io",
-    passwordHash: dummyPasswordHash,
-  },
 ];
 
 const questions = [
@@ -41,7 +36,22 @@ const journals = [
   {
     id: 1,
     userId: 1,
-    created_at: "2021-08-01T12:34:56.789Z",
+    created_at: "2024-08-01T12:34:56.789Z",
+  },
+  {
+    id: 2,
+    userId: 1,
+    created_at: "2024-08-02T12:34:56.789Z",
+  },
+  {
+    id: 3,
+    userId: 1,
+    created_at: "2024-08-03T12:34:56.789Z",
+  },
+  {
+    id: 4,
+    userId: 1,
+    created_at: "2024-08-04T12:34:56.789Z",
   },
 ];
 
@@ -57,9 +67,54 @@ const responses = [
     journalId: 1,
   },
   {
-    content: "changer le typage de la fonction getUserByEmail",
+    content: "Changer le typage de la fonction getUserByEmail",
     questionId: 3,
     journalId: 1,
+  },
+  {
+    content: "Je ne sais pas ce que je fais",
+    questionId: 1,
+    journalId: 2,
+  },
+  {
+    content: "J'ai eu trop de réunions",
+    questionId: 2,
+    journalId: 2,
+  },
+  {
+    content: "Répondre au mail de Pascal",
+    questionId: 3,
+    journalId: 2,
+  },
+  {
+    content: "Super contente car j'ai appris plein de choses aujourd'hui",
+    questionId: 1,
+    journalId: 3,
+  },
+  {
+    content: "Je dois améliorer ma productivité en refusant les initerruptions",
+    questionId: 2,
+    journalId: 3,
+  },
+  {
+    content: "Parler du bugg à Valérie",
+    questionId: 3,
+    journalId: 3,
+  },
+  {
+    content: "Super stressée car je dois finir mon projet cette semaine",
+    questionId: 1,
+    journalId: 4,
+  },
+  {
+    content: "La fatigue",
+    questionId: 2,
+    journalId: 4,
+  },
+  {
+    content: "Prendre des pauses",
+    questionId: 3,
+    journalId: 4,
   },
 ];
 
